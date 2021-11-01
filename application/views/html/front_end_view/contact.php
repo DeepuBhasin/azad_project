@@ -1,97 +1,42 @@
-<?php 
+<?php include_once('header.php'); ?>
 
-	/* ==========================  Define variables ========================== */
 
-	#Your e-mail address
-	define("__TO__", "besimdauti24@gmail.com");
 
-	#Message subject
-	define("__SUBJECT__", "examples.com = From:");
-
-	#Success message
-	define('__SUCCESS_MESSAGE__', "Your message has been sent. Thank you!");
-
-	#Error message 
-	define('__ERROR_MESSAGE__', "Error, your message hasn't been sent");
-
-	#Messege when one or more fields are empty
-	define('__MESSAGE_EMPTY_FILDS__', "Please fill out  all fields");
-
-	/* ========================  End Define variables ======================== */
-
-	//Send mail function
-	function send_mail($to,$subject,$message,$headers){
-		if(@mail($to,$subject,$message,$headers)){
-			echo json_encode(array('info' => 'success', 'msg' => __SUCCESS_MESSAGE__));
-		} else {
-			echo json_encode(array('info' => 'error', 'msg' => __ERROR_MESSAGE__));
-		}
-	}
-
-	//Check e-mail validation
-	function check_email($email){
-		if(!@eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$", $email)){
-			return false;
-		} else {
-			return true;
-		}
-	}
-
-	//Get post data
-	if(isset($_POST['name']) and isset($_POST['mail']) and isset($_POST['comment'])){
-		$name 	 = $_POST['name'];
-		$mail 	 = $_POST['mail'];
-		$phone  = $_POST['phone'];
-		$comment = $_POST['comment'];
-
-		if($name == '') {
-			echo json_encode(array('info' => 'error', 'msg' => "Please enter your name."));
-			exit();
-		} else if($mail == '' or check_email($mail) == false){
-			echo json_encode(array('info' => 'error', 'msg' => "Please enter valid e-mail."));
-			exit();
-		} else if($comment == ''){
-			echo json_encode(array('info' => 'error', 'msg' => "Please enter your message."));
-			exit();
-		} else {
-			//Send Mail
-			$to = __TO__;
-			$subject = __SUBJECT__ . ' ' . $name;
-			$message = '
-			<html>
-			<head>
-			  <title>Mail from '. $name .'</title>
-			</head>
-			<body>
-			  <table style="width: 500px; font-family: arial; font-size: 14px;" border="1">
-				<tr style="height: 32px;">
-				  <th align="right" style="width:150px; padding-right:5px;">Name:</th>
-				  <td align="left" style="padding-left:5px; line-height: 20px;">'. $name .'</td>
-				</tr>
-				<tr style="height: 32px;">
-				  <th align="right" style="width:150px; padding-right:5px;">E-mail:</th>
-				  <td align="left" style="padding-left:5px; line-height: 20px;">'. $mail .'</td>
-				</tr>
-				<tr style="height: 32px;">
-				  <th align="right" style="width:150px; padding-right:5px;">Website:</th>
-				  <td align="left" style="padding-left:5px; line-height: 20px;">'. $phone .'</td>
-				</tr>
-				<tr style="height: 32px;">
-				  <th align="right" style="width:150px; padding-right:5px;">Comment:</th>
-				  <td align="left" style="padding-left:5px; line-height: 20px;">'. $comment .'</td>
-				</tr>
-			  </table>
-			</body>
-			</html>
-			';
-
-			$headers  = 'MIME-Version: 1.0' . "\r\n";
-			$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-			$headers .= 'From: ' . $mail . "\r\n";
-
-			send_mail($to,$subject,$message,$headers);
-		}
-	} else {
-		echo json_encode(array('info' => 'error', 'msg' => __MESSAGE_EMPTY_FILDS__));
-	}
- ?>
+<!-- contact section 
+			================================================== -->
+<section class="contact-section">
+	<div class="container">
+		<div class="col-md-4">
+			<div class="contact-info">
+				<h2>Contact Info</h2>
+				<p>You can contact or visit us in our office from Monday to Friday from 8:00 - 17:00</p>
+				<ul class="information-list">
+					<li><i class="fa fa-map-marker"></i><span>907 N Randolph street, Arlington County, Virginia, United States</span></li>
+					<li><i class="fa fa-phone"></i><span>+1 703-697-1776</span><span>+1 605-315-8544</span></li>
+					<li><i class="fa fa-envelope-o"></i><a href="#">nunforest@gmail.com</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<form id="contact-form">
+				<h2>Send us a message</h2>
+				<div class="row">
+					<div class="col-md-4">
+						<input name="name" id="name" type="text" placeholder="Name">
+					</div>
+					<div class="col-md-4">
+						<input name="mail" id="mail" type="text" placeholder="Email">
+					</div>
+					<div class="col-md-4">
+						<input name="tel-number" id="tel-number" type="text" placeholder="Phone">
+					</div>
+				</div>
+				<textarea name="comment" id="comment" placeholder="Message"></textarea>
+				<input type="submit" id="submit_contact" value="Send Message">
+				<div id="msg" class="message"></div>
+			</form>
+		</div>
+	</div>
+</section>
+<!-- End contact section -->
+<?php include_once('footer.php'); ?>

@@ -4,7 +4,7 @@
 <html lang="en" class="no-js">
 
 <head>
-	<title>Construct</title>
+	<title><?= $title ?></title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,14 +12,14 @@
 
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-	<link rel="stylesheet" type="text/css" href="<?= base_url('public_html/front_end/css/bootstrap.min.css'); ?>" media="screen">
-	<link rel="stylesheet" type="text/css" href="<?= base_url('public_html/front_end/css/jquery.bxslider.css'); ?>" media="screen">
-	<link rel="stylesheet" type="text/css" href="<?= base_url('public_html/front_end/css/owl.carousel.css'); ?>" media="screen">
-	<link rel="stylesheet" type="text/css" href="<?= base_url('public_html/front_end/css/owl.theme.css'); ?>" media="screen">
-	<link rel="stylesheet" type="text/css" href="<?= base_url('public_html/front_end/css/font-awesome.css'); ?>" media="screen">
+	<link rel="stylesheet" type="text/css" href="<?= public_front_end_path('css/bootstrap.min.css'); ?>" media="screen">
+	<link rel="stylesheet" type="text/css" href="<?= public_front_end_path('css/jquery.bxslider.css'); ?>" media="screen">
+	<link rel="stylesheet" type="text/css" href="<?= public_front_end_path('css/owl.carousel.css'); ?>" media="screen">
+	<link rel="stylesheet" type="text/css" href="<?= public_front_end_path('css/owl.theme.css'); ?>" media="screen">
+	<link rel="stylesheet" type="text/css" href="<?= public_front_end_path('css/font-awesome.css'); ?>" media="screen">
 	<!-- REVOLUTION BANNER CSS SETTINGS -->
-	<link rel="stylesheet" type="text/css" href="<?= base_url('public_html/front_end/css/settings.css" '); ?>media=" screen" />
-	<link rel="stylesheet" type="text/css" href="<?= base_url('public_html/front_end/css/style.css'); ?>" media="screen">
+	<link rel="stylesheet" type="text/css" href="<?= public_front_end_path('css/settings.css" '); ?>media=" screen" />
+	<link rel="stylesheet" type="text/css" href="<?= public_front_end_path('css/style.css'); ?>" media="screen">
 
 </head>
 
@@ -27,8 +27,6 @@
 
 	<!-- Container -->
 	<div id="container">
-		<!-- Header
-		    ================================================== -->
 		<header class="clearfix">
 			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 				<div class="top-line">
@@ -57,10 +55,9 @@
 								<ul class="social-icons">
 									<li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
 									<li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-									<li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>
 									<li><a class="google" href="#"><i class="fa fa-google-plus"></i></a></li>
 									<li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-									<li><a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
+
 								</ul>
 							</div>
 						</div>
@@ -75,16 +72,16 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="index.html"><img src="<?= base_url('public_html/front_end/images/logo.png'); ?>" alt=""></a>
+						<a class="navbar-brand" href="<?= base_url('home') ?>"><img src="<?= public_front_end_path('images/logo.png'); ?>" alt=""></a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a class="active" href="index.html">Home</a></li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="projects.html">Projects</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="<?= base_url('home'); ?>">Home</a></li>
+							<li><a href="<?= base_url('project'); ?>">Projects</a></li>
+							<li><a href="<?= base_url('about'); ?>">About</a></li>
+							<li><a href=" <?= base_url('contact'); ?>">Contact</a></li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
 				</div><!-- /.container-fluid -->
@@ -107,7 +104,7 @@
 						<!-- SLIDE  -->
 						<li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Intro Slide">
 							<!-- MAIN IMAGE -->
-							<img src="<?= base_url('public_html/front_end/upload/slide/1.jpg'); ?>" alt="slidebg1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+							<img src="<?= public_front_end_path('upload/slide/1.jpg'); ?>" alt="slidebg1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
 							<!-- LAYERS -->
 
 							<!-- LAYER NR. 1 -->
@@ -135,7 +132,7 @@
 
 						<li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Intro Slide">
 							<!-- MAIN IMAGE -->
-							<img src="<?= base_url('public_html/front_end/upload/slide/2.jpg'); ?>" alt="slidebg1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+							<img src="<?= public_front_end_path('upload/slide/2.jpg'); ?>" alt="slidebg1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
 							<!-- LAYERS -->
 
 							<!-- LAYER NR. 1 -->
@@ -162,7 +159,7 @@
 						<!-- SLIDE  -->
 						<li data-transition="fade" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on" data-title="Parallax 3D">
 							<!-- MAIN IMAGE -->
-							<img src="<?= base_url('public_html/front_end/upload/slide/3.jpg'); ?>" alt="3dbg" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+							<img src="<?= public_front_end_path('upload/slide/3.jpg'); ?>" alt="3dbg" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
 							<!-- LAYERS -->
 
 							<!-- LAYER NR. 1 -->
@@ -193,14 +190,40 @@
 		</section>
 		<!-- End home section -->
 
-		<!-- banner-section 
+		<!-- testimonial-section 
 			================================================== -->
-		<section class="banner-section">
+		<section class="testimonial-section">
 			<div class="container">
-				<h2>Construct is made with greatest page builder &amp; most sold in codecanyon <a href="#" class="button-one">Buy this theme</a></h2>
+				<div class="testimonial-box">
+					<ul class="bxslider">
+						<li>
+							<h2>John Smith</h2>
+							<span>Construct Chief</span>
+							<p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.
+								Aenean dignissim pellentesque felis. Morbi in sem quis dui placerat ornare. Pellentesque
+								odio nisi, euismod in, pharetra a,ultricies in, diam. Sed arcu. Cras consequat.</p>
+						</li>
+						<li>
+							<h2>Besim Dauti</h2>
+							<span>Project Menager</span>
+							<p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.
+								Aenean dignissim pellentesque felis. Morbi in sem quis dui placerat ornare. Pellentesque
+								odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</p>
+						</li>
+						<li>
+							<h2>Quan Ngyen</h2>
+							<span>Electricity Engineer</span>
+							<p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.
+								Aenean dignissim pellentesque felis. Morbi in sem quis dui placerat ornare. Pellentesque
+								odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</p>
+						</li>
+					</ul>
+				</div>
+
 			</div>
 		</section>
-		<!-- End banner section -->
+		<!-- End testimonial section -->
+
 
 		<!-- services-section 
 			================================================== -->
@@ -211,7 +234,7 @@
 
 						<div class="col-md-3">
 							<div class="services-post">
-								<img src="<?= base_url('public_html/front_end/upload/others/5.jpg'); ?>" alt="">
+								<img src="<?= public_front_end_path('upload/others/5.jpg'); ?>" alt="">
 								<div class="services-content">
 									<h2>Elegant Garden</h2>
 									<p>Aenean sed justo tincidunt, vulputate nisi sit amet, rutrum ligula. Pellentesque
@@ -223,7 +246,7 @@
 
 						<div class="col-md-3">
 							<div class="services-post">
-								<img src="<?= base_url('public_html/front_end/upload/others/2.jpg'); ?>" alt="">
+								<img src="<?= public_front_end_path('upload/others/2.jpg'); ?>" alt="">
 								<div class="services-content">
 									<h2>Small &amp; Large Building</h2>
 									<p>Aenean sed justo tincidunt, vulputate nisi sit amet, rutrum ligula. Pellentesque
@@ -235,7 +258,7 @@
 
 						<div class="col-md-3">
 							<div class="services-post">
-								<img src="<?= base_url('public_html/front_end/upload/others/3.jpg'); ?>" alt="">
+								<img src="<?= public_front_end_path('upload/others/3.jpg'); ?>" alt="">
 								<div class="services-content">
 									<h2>Perfect Plans &amp; Projecting</h2>
 									<p>Aenean sed justo tincidunt, vulputate nisi sit amet, rutrum ligula. Pellentesque
@@ -247,7 +270,7 @@
 
 						<div class="col-md-3">
 							<div class="services-post">
-								<img src="<?= base_url('public_html/front_end/upload/others/4.jpg'); ?>" alt="">
+								<img src="<?= public_front_end_path('upload/others/4.jpg'); ?>" alt="">
 								<div class="services-content">
 									<h2>Electricy installation</h2>
 									<p>Aenean sed justo tincidunt, vulputate nisi sit amet, rutrum ligula. Pellentesque
@@ -264,79 +287,7 @@
 		</section>
 		<!-- End services section -->
 
-		<!-- portfolio-section 
-			================================================== -->
-		<section class="portfolio-section">
-			<div class="container">
-				<div class="portfolio-box owl-wrapper">
-					<div class="owl-carousel" data-num="4">
 
-						<div class="item project-post">
-							<div class="project-gallery">
-								<img src="<?= base_url('public_html/front_end/upload/portfolio/1.jpg'); ?>" alt="">
-								<div class="hover-box">
-									<div class="inner-hover">
-										<h2><a href="single-project.html">Single Project Title</a></h2>
-										<span>interior</span>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="item project-post">
-							<div class="project-gallery">
-								<img src="<?= base_url('public_html/front_end/upload/portfolio/2.jpg'); ?>" alt="">
-								<div class="hover-box">
-									<div class="inner-hover">
-										<h2><a href="single-project.html">Single Project Title</a></h2>
-										<span>building</span>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="item project-post">
-							<div class="project-gallery">
-								<img src="<?= base_url('public_html/front_end/upload/portfolio/3.jpg'); ?>" alt="">
-								<div class="hover-box">
-									<div class="inner-hover">
-										<h2><a href="single-project.html">Single Project Title</a></h2>
-										<span>construction</span>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="item project-post">
-							<div class="project-gallery">
-								<img src="<?= base_url('public_html/front_end/upload/portfolio/4.jpg'); ?>" alt="">
-								<div class="hover-box">
-									<div class="inner-hover">
-										<h2><a href="single-project.html">Single Project Title</a></h2>
-										<span>house</span>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="item project-post">
-							<div class="project-gallery">
-								<img src="<?= base_url('public_html/front_end/upload/portfolio/5.jpg'); ?>" alt="">
-								<div class="hover-box">
-									<div class="inner-hover">
-										<h2><a href="single-project.html">Single Project Title</a></h2>
-										<span>architecture</span>
-									</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-
-			</div>
-		</section>
-		<!-- End portfolio section -->
 
 		<!-- tabs-section 
 			================================================== -->
@@ -393,7 +344,7 @@
 					<div class="col-md-5">
 
 						<div class="about-box">
-							<img src="<?= base_url('public_html/front_end/upload/others/about.jpg'); ?>" alt="">
+							<img src="<?= public_front_end_path('upload/others/about.jpg'); ?>" alt="">
 							<h2>Who we are</h2>
 							<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
 								cillum dolore eu fugiat nulla pariatur. Excepteur sint.</p>
@@ -418,7 +369,7 @@
 
 						<div class="item news-post">
 							<div class="news-gallery">
-								<img src="<?= base_url('public_html/front_end/upload/blog/news1.jpg'); ?>" alt="">
+								<img src="<?= public_front_end_path('upload/blog/news1.jpg'); ?>" alt="">
 								<div class="date-post">
 									<p>June <span>15</span></p>
 								</div>
@@ -433,7 +384,7 @@
 
 						<div class="item news-post">
 							<div class="news-gallery">
-								<img src="<?= base_url('public_html/front_end/upload/blog/news2.jpg'); ?>" alt="">
+								<img src="<?= public_front_end_path('upload/blog/news2.jpg'); ?>" alt="">
 								<div class="date-post">
 									<p>June <span>17</span></p>
 								</div>
@@ -448,7 +399,7 @@
 
 						<div class="item news-post">
 							<div class="news-gallery">
-								<img src="<?= base_url('public_html/front_end/upload/blog/news3.jpg'); ?>" alt="">
+								<img src="<?= public_front_end_path('upload/blog/news3.jpg'); ?>" alt="">
 								<div class="date-post">
 									<p>June <span>20</span></p>
 								</div>
@@ -463,7 +414,7 @@
 
 						<div class="item news-post">
 							<div class="news-gallery">
-								<img src="<?= base_url('public_html/front_end/upload/blog/news1.jpg'); ?>" alt="">
+								<img src="<?= public_front_end_path('upload/blog/news1.jpg'); ?>" alt="">
 								<div class="date-post">
 									<p>July <span>15</span></p>
 								</div>
@@ -478,7 +429,7 @@
 
 						<div class="item news-post">
 							<div class="news-gallery">
-								<img src="<?= base_url('public_html/front_end/upload/blog/news2.jpg'); ?>" alt="">
+								<img src="<?= public_front_end_path('upload/blog/news2.jpg'); ?>" alt="">
 								<div class="date-post">
 									<p>July <span>15</span></p>
 								</div>
@@ -498,77 +449,13 @@
 		</section>
 		<!-- End news section -->
 
-		<!-- testimonial-section 
-			================================================== -->
-		<section class="testimonial-section">
-			<div class="container">
-				<div class="testimonial-box">
-					<ul class="bxslider">
-						<li>
-							<h2>John Smith</h2>
-							<span>Construct Chief</span>
-							<p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.
-								Aenean dignissim pellentesque felis. Morbi in sem quis dui placerat ornare. Pellentesque
-								odio nisi, euismod in, pharetra a,ultricies in, diam. Sed arcu. Cras consequat.</p>
-						</li>
-						<li>
-							<h2>Besim Dauti</h2>
-							<span>Project Menager</span>
-							<p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.
-								Aenean dignissim pellentesque felis. Morbi in sem quis dui placerat ornare. Pellentesque
-								odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</p>
-						</li>
-						<li>
-							<h2>Quan Ngyen</h2>
-							<span>Electricity Engineer</span>
-							<p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.
-								Aenean dignissim pellentesque felis. Morbi in sem quis dui placerat ornare. Pellentesque
-								odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</p>
-						</li>
-					</ul>
-				</div>
-
-			</div>
-		</section>
-		<!-- End testimonial section -->
-
-		<!-- quote-section 
-			================================================== -->
-		<section class="quote-section">
-
-			<div id="map"></div>
-
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-5 col-sm-offset-7">
-
-						<div class="quote-box">
-							<h1>Free quote to contact us</h1>
-
-							<form id="contact-form">
-								<input name="name" id="name" type="text" placeholder="Name">
-								<input name="mail" id="mail" type="text" placeholder="Email">
-								<input name="tel-number" id="tel-number" type="text" placeholder="Phone">
-								<textarea name="comment" id="comment" placeholder="Message"></textarea>
-								<input type="submit" id="submit_contact" value="Send Message">
-								<div id="msg" class="message"></div>
-							</form>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-		</section>
-		<!-- End quote section -->
-
 		<!-- footer 
 			================================================== -->
 		<footer>
 			<div class="container">
 				<div class="footer-widgets">
 					<div class="row">
-						<div class="col-md-3">
+						<div class="col-md-4">
 							<div class="widgets">
 								<h2>About us</h2>
 								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
@@ -576,7 +463,7 @@
 								<p>Reprehenderit in voluptate velit esse cillum nulla pariatur.</p>
 							</div>
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-4">
 							<div class="widgets">
 								<h2>Tags</h2>
 								<ul class="tag-list">
@@ -589,22 +476,7 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-md-3">
-							<div class="widgets">
-								<h2>Flickr widget</h2>
-								<ul class="flickr-list">
-									<li><a href="#"><img src="<?= base_url('public_html/front_end/upload/flickr/1.jpg') ?>" alt="" /></a></li>
-									<li><a href="#"><img src="<?= base_url('public_html/front_end/upload/flickr/2.jpg') ?>" alt="" /></a></li>
-									<li><a href="#"><img src="<?= base_url('public_html/front_end/upload/flickr/3.jpg') ?>" alt="" /></a></li>
-									<li><a href="#"><img src="<?= base_url('public_html/front_end/upload/flickr/4.jpg') ?>" alt="" /></a></li>
-									<li><a href="#"><img src="<?= base_url('public_html/front_end/upload/flickr/5.jpg') ?>" alt="" /></a></li>
-									<li><a href="#"><img src="<?= base_url('public_html/front_end/upload/flickr/6.jpg') ?>" alt="" /></a></li>
-									<li><a href="#"><img src="<?= base_url('public_html/front_end/upload/flickr/1.jpg') ?>" alt="" /></a></li>
-									<li><a href="#"><img src="<?= base_url('public_html/front_end/upload/flickr/2.jpg') ?>" alt="" /></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-3">
+						<div class="col-md-4">
 							<div class="widgets info-widget">
 								<h2>Working Hours</h2>
 								<p class="first-par">You can contact or visit us during working time.</p>
@@ -619,7 +491,7 @@
 			<div class="last-line">
 				<div class="container">
 					<p class="copyright">
-						&copy; Copyright 2015. "Construct" by Nunforest. All rights reserved.
+						&copy; Copyright <?= date('Y'); ?>. "Construct" by Nunforest. All rights reserved.
 					</p>
 				</div>
 			</div>
@@ -629,19 +501,19 @@
 	</div>
 	<!-- End Container -->
 
-	<script type="text/javascript" src="<?= base_url('public_html/front_end/js/jquery.min.js'); ?>"></script>
-	<script type="text/javascript" src="<?= base_url('public_html/front_end/js/jquery.migrate.js'); ?>"></script>
-	<script type="text/javascript" src="<?= base_url('public_html/front_end/js/jquery.bxslider.min.js'); ?>"></script>
-	<script type="text/javascript" src="<?= base_url('public_html/front_end/js/owl.carousel.min.js'); ?>"></script>
-	<script type="text/javascript" src="<?= base_url('public_html/front_end/js/bootstrap.min.js'); ?>"></script>
-	<script type="text/javascript" src="<?= base_url('public_html/front_end/js/jquery.imagesloaded.min.js'); ?>"></script>
-	<script type="text/javascript" src="<?= base_url('public_html/front_end/js/retina-1.1.0.min.js'); ?>"></script>
+	<script type="text/javascript" src="<?= public_front_end_path('js/jquery.min.js'); ?>"></script>
+	<script type="text/javascript" src="<?= public_front_end_path('js/jquery.migrate.js'); ?>"></script>
+	<script type="text/javascript" src="<?= public_front_end_path('js/jquery.bxslider.min.js'); ?>"></script>
+	<script type="text/javascript" src="<?= public_front_end_path('js/owl.carousel.min.js'); ?>"></script>
+	<script type="text/javascript" src="<?= public_front_end_path('js/bootstrap.min.js'); ?>"></script>
+	<script type="text/javascript" src="<?= public_front_end_path('js/jquery.imagesloaded.min.js'); ?>"></script>
+	<script type="text/javascript" src="<?= public_front_end_path('js/retina-1.1.0.min.js'); ?>"></script>
 	<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
-	<script type="text/javascript" src="<?= base_url('public_html/front_end/js/jquery.themepunch.tools.min.js'); ?>"></script>
-	<script type="text/javascript" src="<?= base_url('public_html/front_end/js/jquery.themepunch.revolution.min.js'); ?>"></script>
+	<script type="text/javascript" src="<?= public_front_end_path('js/jquery.themepunch.tools.min.js'); ?>"></script>
+	<script type="text/javascript" src="<?= public_front_end_path('js/jquery.themepunch.revolution.min.js'); ?>"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
-	<script type="text/javascript" src="<?= base_url('public_html/front_end/js/gmap3.min.js'); ?>"></script>
-	<script type="text/javascript" src="<?= base_url('public_html/front_end/js/script.js'); ?>"></script>
+	<script type="text/javascript" src="<?= public_front_end_path('js/gmap3.min.js'); ?>"></script>
+	<script type="text/javascript" src="<?= public_front_end_path('js/script.js'); ?>"></script>
 
 
 	<!-- Revolution slider -->
