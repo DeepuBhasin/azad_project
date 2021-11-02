@@ -55,23 +55,10 @@
 
                 <ul class="sidebar-menu">
                     <li><a href="<?= base_url('dashboard') ?>"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
-                    <li><a href="<?= base_url('footerdiv') ?>"><i class="fa fa-dashboard"></i><span>Footer Div</span></a></li>
-                    <li class="treeview"><a href="#"><i class="fa fa-laptop"></i><span>Footer</span><i class="fa fa-angle-right"></i></a>
-                        <ul class="treeview-menu">
-                            <li><a href="bootstrap-components.html"><i class="fa fa-circle-o"></i> Bootstrap Elements</a></li>
-                            <li><a href="http://fontawesome.io/icons/" target="_blank"><i class="fa fa-circle-o"></i> Font Icons</a></li>
-                            <li><a href="ui-cards.html"><i class="fa fa-circle-o"></i> Cards</a></li>
-                            <li><a href="widgets.html"><i class="fa fa-circle-o"></i> Widgets</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview"><a href="#"><i class="fa fa-edit"></i><span>Forms</span><i class="fa fa-angle-right"></i></a>
-                        <ul class="treeview-menu">
-                            <li><a href="form-components.html"><i class="fa fa-circle-o"></i> Form Components</a></li>
-                            <li><a href="form-custom.html"><i class="fa fa-circle-o"></i> Custom Components</a></li>
-                            <li><a href="form-samples.html"><i class="fa fa-circle-o"></i> Form Samples</a></li>
-                            <li><a href="form-notifications.html"><i class="fa fa-circle-o"></i> Form Notifications</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="<?= base_url('aboutpage') ?>"><i class="fa fa-dashboard"></i><span>About US Page</span></a></li>
+                    <li><a href="<?= base_url('contactpage') ?>"><i class="fa fa-dashboard"></i><span>Contact Page</span></a></li>
+                    <li><a href="<?= base_url('footerdiv') ?>"><i class="fa fa-dashboard"></i><span>Footer Div & Header Div</span></a></li>
+
                     <li class="treeview"><a href="#"><i class="fa fa-th-list"></i><span>Tables</span><i class="fa fa-angle-right"></i></a>
                         <ul class="treeview-menu">
                             <li><a href="table-basic.html"><i class="fa fa-circle-o"></i> Basic Tables</a></li>

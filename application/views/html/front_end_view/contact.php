@@ -9,16 +9,19 @@
 		<div class="col-md-4">
 			<div class="contact-info">
 				<h2>Contact Info</h2>
-				<p>You can contact or visit us in our office from Monday to Friday from 8:00 - 17:00</p>
+				<p><?= $contactPageData['contact_info'] ?></p>
 				<ul class="information-list">
-					<li><i class="fa fa-map-marker"></i><span>907 N Randolph street, Arlington County, Virginia, United States</span></li>
-					<li><i class="fa fa-phone"></i><span>+1 703-697-1776</span><span>+1 605-315-8544</span></li>
-					<li><i class="fa fa-envelope-o"></i><a href="#">nunforest@gmail.com</a></li>
+					<li><i class="fa fa-map-marker"></i><span><?= nl2br($contactPageData['address']); ?></span></li>
+					<li><i class="fa fa-phone"></i><span> <?= $pageData['phone1'] ?></span> <?= isset($pageData['phone2']) ? '<span>' . $pageData['phone2'] : '</span>'; ?></li>
+
+
+					<li><i class="fa fa-envelope-o"></i><a href="mailto:<?= $pageData['email'] ?>"><?= $pageData['email'] ?></a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="col-md-8">
-			<form id="contact-form" action="<?= base_url('contact') ?>" method="post">
+			<?php include_once('message.php'); ?>
+			<form id="contact-form" action="<?= base_url('contact') ?>" method="POST">
 				<h2>Send us a message</h2>
 				<div class="row">
 					<div class="col-md-12">

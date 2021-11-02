@@ -12,6 +12,7 @@ function postDataFilterInvertedComma($data)
 {
     $CI = &get_instance();
     $data = trim($data);
-    $data = mysqli_real_escape_string($CI->db->conn_id, $data);
+    $data = addslashes(nl2br($data));
+    // $data = mysqli_real_escape_string($CI->db->conn_id, $data);
     return $data;
 }

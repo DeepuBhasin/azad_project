@@ -24,4 +24,17 @@ class Backend_model extends MY_MODEL
             return FALSE;
         }
     }
+    public function insertData(string $tableName = null, array $values = []): bool
+    {
+        $this->db->trans_begin();
+        $query = $this->db->insert($tableName, $values);
+
+        if ($this->db->affected_rows()) {
+            $this->db->trans_commit();
+            return TRUE;
+        } else {
+            $this->db->trans_rollback();
+            return FALSE;
+        }
+    }
 }

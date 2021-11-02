@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Backend_controller extends MY_Controller
 {
-	const FOOTER_DIV_ID = 1;
+	const DATABASE_ID = 1;
 
 	public function __construct()
 	{
@@ -58,6 +58,10 @@ class Backend_controller extends MY_Controller
 	}
 	public function footerdiv()
 	{
+		$pageName = 'Footer Div & Header Div';
+		$fileName = 'footerdiv';
+		$tableName = 'footerdiv';
+		$whereConditon = ['id' => self::DATABASE_ID];
 
 		if (isset($_POST['save']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -72,27 +76,95 @@ class Backend_controller extends MY_Controller
 				'created_at' => getCurrentTime(),
 			];
 
-			$responseResult = $this->Backend_model->updateWithWhere('footerdiv', $updateData, ['id' => self::FOOTER_DIV_ID]);
+			$responseResult = $this->Backend_model->updateWithWhere($tableName, $updateData, $whereConditon);
 			if ($responseResult === TRUE) {
-				RedirectMessageLink("Information updated successfully in <strong>Footer Div </strong> ", 'success', 'footerdiv');
+				RedirectMessageLink("Information updated successfully in <strong> $pageName </strong> ", 'success', $fileName);
 			} else {
-				RedirectMessageLink('Database Problem', 'danger', 'footerdiv');
+				RedirectMessageLink('Database Problem', 'danger', $fileName);
 			}
 		}
 
 
 
 		$data = [
-			'title' => "FooterDiv " . $this->appendTitle,
-			'breadcrumbs' => 'Footer Div',
+			'title' => $pageName . $this->appendTitle,
+			'breadcrumbs' => $pageName,
 			'admin_name' => $this->userData(),
-			'pageData' => $this->Backend_model->rowDataWithWhere('footerdiv', ['id' => self::FOOTER_DIV_ID])
+			'pageData' => $this->Backend_model->rowDataWithWhere($tableName, $whereConditon)
 		];
 
 
-		$filePath = view_back_end_path('footerdiv');
+		$filePath = view_back_end_path($fileName);
 		$this->load->view($filePath, $data);
 	}
+	public function contactpage()
+	{
+		$pageName = 'Contact Page';
+		$fileName = 'contactpage';
+		$tableName = 'contact_table';
+		$whereConditon = ['id' => self::DATABASE_ID];
+
+		if (isset($_POST['save']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+
+			$updateData = [
+				'contact_info' => postDataFilterhtml($this->input->post('contact_info')),
+				'address' => $this->input->post('address'),
+				'created_at' => getCurrentTime(),
+			];
+
+			$responseResult = $this->Backend_model->updateWithWhere($tableName, $updateData, $whereConditon);
+			if ($responseResult === TRUE) {
+				RedirectMessageLink("Information updated successfully in <strong> $pageName </strong> ", 'success', $fileName);
+			} else {
+				RedirectMessageLink('Database Problem', 'danger', $fileName);
+			}
+		}
+
+		$data = [
+			'title' => $pageName . $this->appendTitle,
+			'breadcrumbs' => $pageName,
+			'admin_name' => $this->userData(),
+			'pageData' => $this->Backend_model->rowDataWithWhere($tableName, $whereConditon)
+		];
+
+
+		$filePath = view_back_end_path($fileName);
+		$this->load->view($filePath, $data);
+	}
+	public function aboutpage()
+	{
+		$pageName = 'About US Page';
+		$fileName = 'aboutpage';
+		$tableName = 'about_table';
+		$whereConditon = ['id' => self::DATABASE_ID];
+
+		if (isset($_POST['save']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+
+			$updateData = [
+				'about_description' => $this->input->post('about_description'),
+				'created_at' => getCurrentTime(),
+			];
+
+			$responseResult = $this->Backend_model->updateWithWhere($tableName, $updateData, $whereConditon);
+			if ($responseResult === TRUE) {
+				RedirectMessageLink("Information updated successfully in <strong> $pageName </strong> ", 'success', $fileName);
+			} else {
+				RedirectMessageLink('Database Problem', 'danger', $fileName);
+			}
+		}
+
+		$data = [
+			'title' => $pageName . $this->appendTitle,
+			'breadcrumbs' => $pageName,
+			'admin_name' => $this->userData(),
+			'pageData' => $this->Backend_model->rowDataWithWhere($tableName, $whereConditon)
+		];
+
+
+		$filePath = view_back_end_path($fileName);
+		$this->load->view($filePath, $data);
+	}
+
 	public function logout()
 	{
 		session_start();
