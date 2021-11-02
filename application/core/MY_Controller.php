@@ -7,6 +7,6 @@ class MY_Controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->helper(['form', 'redirect', 'myurl']);
+        $this->load->helper(['redirectmessage', 'filepathurls_helper', 'url', 'form']);
     }
 }

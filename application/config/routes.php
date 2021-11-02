@@ -56,10 +56,12 @@ $route['home'] = 'frontend_controller/index';
 $route['contact'] = 'frontend_controller/contact';
 $route['project'] = 'frontend_controller/project';
 $route['about'] = 'frontend_controller/about';
-$route['(:any)'] = 'frontend_controller/index';
-
 
 
 $route['admin_login'] = 'backend_controller/index';
+$route['dashboard']  = 'backend_controller/dashboard';
+$route['footerdiv'] = 'backend_controller/footerdiv';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+// $route['(:any)'] = 'frontend_controller/index';

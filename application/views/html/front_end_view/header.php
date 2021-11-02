@@ -29,32 +29,23 @@
                 <div class="top-line">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-md-12">
                                 <ul class="info-list">
                                     <li>
                                         <i class="fa fa-phone"></i>
                                         Call us:
-                                        <span>1234 - 5678 - 9012</span>
+                                        <span><?= $pageData['phone1'] ?> <?= isset($pageData['phone2']) ? ', ' . $pageData['phone2'] : ''; ?></span>
                                     </li>
                                     <li>
                                         <i class="fa fa-envelope-o"></i>
                                         Email us:
-                                        <span>nunforest@gmail.com</span>
+                                        <span><?= $pageData['email'] ?></span>
                                     </li>
                                     <li>
                                         <i class="fa fa-clock-o"></i>
                                         working time:
-                                        <span>08:00 - 17:00</span>
+                                        <span><?= $pageData['working_hours'] ?></span>
                                     </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-4">
-                                <ul class="social-icons">
-                                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a class="google" href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-
                                 </ul>
                             </div>
                         </div>

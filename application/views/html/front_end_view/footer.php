@@ -7,20 +7,21 @@
 					<div class="col-md-4">
 						<div class="widgets">
 							<h2>About us</h2>
-							<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-							<p>Reprehenderit in voluptate velit esse cillum nulla pariatur.</p>
+							<p><?= nl2br($pageData['about_us']); ?></p>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="widgets">
 							<h2>Tags</h2>
 							<ul class="tag-list">
-								<li><a href="#">Interior</a></li>
-								<li><a href="#">Website</a></li>
-								<li><a href="#">Development</a></li>
-								<li><a href="#">Medicine</a></li>
-								<li><a href="#">Web Design</a></li>
-								<li><a href="#">Photography</a></li>
+								<?php
+								$array = explode(',', $pageData['tags']);
+								foreach ($array as $key1 => $value1) :
+								?>
+									<li><a href="#"><?= $value1 ?></a></li>
+								<?php
+								endforeach;
+								?>
 							</ul>
 						</div>
 					</div>
@@ -29,9 +30,9 @@
 						<div class="widgets info-widget">
 							<h2>Working Hours</h2>
 							<p class="first-par">You can contact or visit us during working time.</p>
-							<p><span>Tel: </span> 1234 - 5678 - 9012</p>
-							<p><span>Email: </span> nunforest@gmail.com</p>
-							<p><span>Working Hours: </span> 8:00 a.m - 17:00 a.m</p>
+							<p><span>Tel: </span> <?= $pageData['phone1'] ?> <?= isset($pageData['phone2']) ? ', ' . $pageData['phone2'] : ''; ?></p>
+							<p><span>Email: </span> <?= $pageData['email'] ?></p>
+							<p><span>Working Hours: </span> <?= $pageData['working_hours'] ?></p>
 						</div>
 					</div>
 				</div>
@@ -40,7 +41,10 @@
 		<div class="last-line">
 			<div class="container">
 				<p class="copyright">
-					&copy; Copyright <?= date('Y'); ?>. "Construct" by Nunforest. All rights reserved.
+					&copy; Copyright <?= date('Y'); ?>. <?= $pageData['copyright']; ?>
+					<br />
+					Design and Development by <a href="#">Deepinder Singh</a>
+
 				</p>
 			</div>
 		</div>

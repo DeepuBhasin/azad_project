@@ -18,22 +18,20 @@
 			</div>
 		</div>
 		<div class="col-md-8">
-			<form id="contact-form">
+			<form id="contact-form" action="<?= base_url('contact') ?>" method="post">
 				<h2>Send us a message</h2>
 				<div class="row">
-					<div class="col-md-4">
-						<input name="name" id="name" type="text" placeholder="Name">
-					</div>
-					<div class="col-md-4">
-						<input name="mail" id="mail" type="text" placeholder="Email">
-					</div>
-					<div class="col-md-4">
-						<input name="tel-number" id="tel-number" type="text" placeholder="Phone">
+					<div class="col-md-12">
+						<input name="name" id="name" type="text" placeholder="Please Enter Name *" required>
+
+						<input name="email" id="email" type="text" placeholder="Please Enter Email *" required>
+
+						<input name="phone" id="phone" type="text" placeholder="Please Enter Phone *" required>
+
+						<textarea name="message" id="message" placeholder="Please Enter Message *" required></textarea>
+						<input type="submit" name="send" value="Send Message">
 					</div>
 				</div>
-				<textarea name="comment" id="comment" placeholder="Message"></textarea>
-				<input type="submit" id="submit_contact" value="Send Message">
-				<div id="msg" class="message"></div>
 			</form>
 		</div>
 	</div>
