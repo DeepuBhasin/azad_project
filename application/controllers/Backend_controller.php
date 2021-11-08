@@ -51,6 +51,7 @@ class Backend_controller extends MY_Controller
 			'title' => "Dasboard " . $this->appendTitle,
 			'breadcrumbs' => 'Dashboard',
 			'admin_name' => $this->userData(),
+			'dashboardPageData' => $this->Backend_model->rowsData('message_table', 'id,user_name,email,phone,message,created_at', 'created_at', 'DESC'),
 		];
 
 		$filePath = view_back_end_path('dashboard');
@@ -161,6 +162,45 @@ class Backend_controller extends MY_Controller
 		];
 
 
+		$filePath = view_back_end_path($fileName);
+		$this->load->view($filePath, $data);
+	}
+	public function addproject()
+	{
+		$pageName = 'Add Project';
+		$fileName = 'addproject';
+		$tableName = 'project_table';
+
+
+		if (isset($_POST['add']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
+			$updateData = [
+				'title' => postDataFilterhtml($this->input->post('about_description')),
+				'category' => $this->input->post('category'),
+				'description' => $this->input->post('about_description'),
+				'project_date' => $this->input->post('project_date'),
+				'location' => postDataFilterhtml($this->input->post('location')),
+				'project_value' => postDataFilterhtml($this->input->post('project_value')),
+				'dashboard_status' => 0,
+				'visibile_status' => 1,
+				'created_at' => getCurrentTime(),
+			];
+
+			$responseResult = $this->Backend_model->updateWithWhere($tableName, $updateData);
+			if ($responseResult === TRUE) {
+				RedirectMessageLink("Information updated successfully in <strong> $pageName </strong> ", 'success', $fileName);
+			} else {
+				RedirectMessageLink('Database Problem', 'danger', $fileName);
+			}
+		}
+
+		$data = [
+			'title' => $pageName . $this->appendTitle,
+			'breadcrumbs' => $pageName,
+			'admin_name' => $this->userData(),
+			'projectCategory' => $this->Backend_model->rowsData('project_category', 'id,name', 'name', 'ASC')
+		];
 		$filePath = view_back_end_path($fileName);
 		$this->load->view($filePath, $data);
 	}

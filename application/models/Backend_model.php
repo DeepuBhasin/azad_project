@@ -10,6 +10,15 @@ class Backend_model extends MY_MODEL
             return [];
         }
     }
+    public function rowsData(string $tableName = null, string $select = null, string $orderby = null, $sortby = 'ASC'): array
+    {
+        $query = $this->db->select($select)->order_by($orderby, $sortby)->get($tableName);
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        } else {
+            return [];
+        }
+    }
 
     public function updateWithWhere(string $tableName = null, array $values = [], array $where = []): bool
     {

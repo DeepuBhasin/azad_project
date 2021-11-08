@@ -63,6 +63,7 @@ $route['dashboard']  = 'backend_controller/dashboard';
 $route['footerdiv'] = 'backend_controller/footerdiv';
 $route['contactpage'] = 'backend_controller/contactpage';
 $route['aboutpage'] = 'backend_controller/aboutpage';
+$route['addproject'] = 'backend_controller/addproject';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
