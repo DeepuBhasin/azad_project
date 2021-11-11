@@ -226,4 +226,54 @@ class Backend_controller extends MY_Controller
 		$this->session->sess_destroy();
 		redirect('backend_controller');
 	}
+	public function viewproject()
+	{
+		$pageName = 'View Projects';
+		$fileName = 'viewproject';
+
+
+		$data = [
+			'title' => $pageName . $this->appendTitle,
+			'breadcrumbs' => $pageName,
+			'admin_name' => $this->userData(),
+			'pageData' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.id,pt.title,pc.name,pt.main_image_1,pt.dashboard_status,pt.visibile_status,pt.created_at', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category',  [], 'pt.created_at', 'DESC', false)
+		];
+
+
+		$filePath = view_back_end_path($fileName);
+		$this->load->view($filePath, $data);
+	}
+	public function showproject($project_id)
+	{
+		$pageName = 'Show Project';
+		$fileName = 'showproject';
+
+		$data = [
+			'title' => $pageName . $this->appendTitle,
+			'breadcrumbs' => $pageName,
+			'admin_name' => $this->userData(),
+			'pageData' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.*,pc.name', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category', ['pt.id' => $project_id],  'pt.created_at', 'DESC', true)
+		];
+
+
+		$filePath = view_back_end_path($fileName);
+		$this->load->view($filePath, $data);
+	}
+	public function dashboard_status($dashboardStatus, $tableId)
+	{
+		$fileName = 'viewproject';
+		$tableName = 'project_table';
+
+		$updateData = [
+			'dashboard_status' => $dashboardStatus
+		];
+		$whereConditon = ['id' => $tableId];
+
+		$responseResult = $this->Backend_model->updateWithWhere($tableName, $updateData, $whereConditon);
+		if ($responseResult === TRUE) {
+			RedirectMessageLink("Dashboard Status updated successfully", 'success', $fileName);
+		} else {
+			RedirectMessageLink('Database Problem', 'danger', $fileName);
+		}
+	}
 }

@@ -1,6 +1,11 @@
 <?php
 class Backend_model extends MY_MODEL
 {
+    private function getSqlQuery()
+    {
+        echo  $this->db->last_query();
+        exit;
+    }
     public function rowDataWithWhere(string $tableName = null, array $where = []): array
     {
         $query = $this->db->where($where)->get($tableName);
@@ -23,7 +28,7 @@ class Backend_model extends MY_MODEL
     public function updateWithWhere(string $tableName = null, array $values = [], array $where = []): bool
     {
         $this->db->trans_begin();
-        $query = $this->db->where($where)->update($tableName, $values);
+        $this->db->where($where)->update($tableName, $values);
 
         if ($this->db->affected_rows()) {
             $this->db->trans_commit();
@@ -36,7 +41,7 @@ class Backend_model extends MY_MODEL
     public function insertData(string $tableName = null, array $values = []): bool
     {
         $this->db->trans_begin();
-        $query = $this->db->insert($tableName, $values);
+        $this->db->insert($tableName, $values);
 
         if ($this->db->affected_rows()) {
             $this->db->trans_commit();
@@ -44,6 +49,18 @@ class Backend_model extends MY_MODEL
         } else {
             $this->db->trans_rollback();
             return FALSE;
+        }
+    }
+    public function rowDataWithSingleInnerJoin(string $select = null, string $fromTable = null, string $joinTable = null, string $relationOn = null, array $where = [], string $orderby = null, $sortby = 'ASC', bool $rowStatus = false): array
+    {
+        $query = $this->db->select($select)->from($fromTable)->join($joinTable, $relationOn)->where($where)->order_by($orderby, $sortby)->get();
+
+        if ($rowStatus == true) {
+            return $query->row_array();
+        } else if ($query->num_rows() > 0) {
+            return $query->result_array();
+        } else {
+            return [];
         }
     }
 }

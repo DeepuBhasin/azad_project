@@ -52,18 +52,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'frontend_controller';
 
 
-$route['home'] = 'frontend_controller/index';
+$route['home']['get'] = 'frontend_controller/index';
 $route['contact'] = 'frontend_controller/contact';
-$route['project'] = 'frontend_controller/project';
-$route['about'] = 'frontend_controller/about';
+$route['project']['get'] = 'frontend_controller/project';
+$route['about']['get'] = 'frontend_controller/about';
 
 
-$route['admin_login'] = 'backend_controller/index';
-$route['dashboard']  = 'backend_controller/dashboard';
+$route['admin_login']['get'] = 'backend_controller/index';
+$route['dashboard']['get']  = 'backend_controller/dashboard';
 $route['footerdiv'] = 'backend_controller/footerdiv';
 $route['contactpage'] = 'backend_controller/contactpage';
 $route['aboutpage'] = 'backend_controller/aboutpage';
 $route['addproject'] = 'backend_controller/addproject';
+$route['viewproject']['get'] = 'backend_controller/viewproject';
+$route['showproject/(:num)']['get'] = 'backend_controller/showproject/$1';
+$route['dashboard_status/(:num)/(:num)']['get'] = 'backend_controller/dashboard_status/$1/$2';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
