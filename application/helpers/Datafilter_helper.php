@@ -7,12 +7,3 @@ function postDataFilterhtml($data)
     $data = mysqli_real_escape_string($CI->db->conn_id, $data);
     return $data;
 }
-
-function postDataFilterInvertedComma($data)
-{
-    $CI = &get_instance();
-    $data = trim($data);
-    $data = addslashes(nl2br($data));
-    // $data = mysqli_real_escape_string($CI->db->conn_id, $data);
-    return $data;
-}

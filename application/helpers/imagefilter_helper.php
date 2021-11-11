@@ -1,40 +1,37 @@
 <?php
-function upload_image($image = null)
+function uploadSingleImage($imageName = null, $imageTempName = null)
 {
-    if (empty($image)) {
+    if (empty($imageName) || empty($imageTempName)) {
         return FALSE;
     }
     $RandomAccountNumber = uniqid();
-    $upload = $RandomAccountNumber . ($_FILES['csv_file']['name']);
-    $source = $_FILES['csv_file']['tmp_name'];
-    $target = 'textfile/' . $upload;
-    move_uploaded_file($source, $target);
-
-
-
-
-
-    // $dir = "textfile/";
-    // $b = scandir($dir, 1);
-    // $send_from = htmlspecialchars(trim($_POST['send_from']));
-
-    // $count = count($b) - 2;
-
-    // for ($x = 0; $x < $count; $x++) {
-
-    //     if (!empty($b[$x])) {
-    //         unlink('textfile/' . $b[$x]);
-    //     }
-    // }
-
-
-    // $dir = "textfile/";
-    // $b = scandir($dir, 1);
-
-    // $count = count($b) - 2;
-
-    // for ($x = 0; $x < $count; $x++) {
-
-    //     $file_name = $b[$x];
+    $upload = $RandomAccountNumber . $imageName;
+    $source = $imageTempName;
+    $target = 'public_html/front_end/upload/projects/' . $upload;
+    if (move_uploaded_file($source, $target)) {
+        return $upload;
+    } else {
+        return FALSE;
     }
+}
+
+function uploadMultiImage($arrayOfImages = [])
+{
+    if (empty($arrayOfImages)) {
+        return FALSE;
+    }
+
+    $totalImages = count($arrayOfImages['name']);
+    $returnImages = [];
+
+    for ($i = 0; $i < $totalImages; $i++) {
+        $RandomAccountNumber = uniqid();
+        $upload = $RandomAccountNumber . $arrayOfImages['name'][$i];
+        $source = $arrayOfImages['tmp_name'][$i];
+        $target = 'public_html/front_end/upload/projects/' . $upload;
+        move_uploaded_file($source, $target);
+        array_push($returnImages, $upload);
+    }
+    $returnImages = implode(',', $returnImages);
+    return $returnImages;
 }

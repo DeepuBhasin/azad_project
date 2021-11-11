@@ -167,6 +167,7 @@ class Backend_controller extends MY_Controller
 	}
 	public function addproject()
 	{
+		$this->load->helper(['imagefilter']);
 		$pageName = 'Add Project';
 		$fileName = 'addproject';
 		$tableName = 'project_table';
@@ -175,10 +176,23 @@ class Backend_controller extends MY_Controller
 		if (isset($_POST['add']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
-			$updateData = [
-				'title' => postDataFilterhtml($this->input->post('about_description')),
+			$singleImageResponse1 = uploadSingleImage($_FILES['main_image_1']['name'], $_FILES['main_image_1']['tmp_name']);
+			$singleImageResponse2 = uploadSingleImage($_FILES['main_image_2']['name'], $_FILES['main_image_2']['tmp_name']);
+			$multipleImageResponse = uploadMultiImage($_FILES['slide_shows']);
+
+
+			if ($singleImageResponse1 == FALSE || $singleImageResponse2 == FALSE || $multipleImageResponse == FALSE) {
+				RedirectMessageLink('Server Error. Images not upload', 'danger', $fileName);
+			}
+
+
+			$insertData = [
+				'title' => postDataFilterhtml($this->input->post('project_title')),
 				'category' => $this->input->post('category'),
-				'description' => $this->input->post('about_description'),
+				'main_image_1' => $singleImageResponse1,
+				'main_image_2' => $singleImageResponse2,
+				'slide_show_images' => $multipleImageResponse,
+				'description' => $this->input->post('description'),
 				'project_date' => $this->input->post('project_date'),
 				'location' => postDataFilterhtml($this->input->post('location')),
 				'project_value' => postDataFilterhtml($this->input->post('project_value')),
@@ -187,9 +201,10 @@ class Backend_controller extends MY_Controller
 				'created_at' => getCurrentTime(),
 			];
 
-			$responseResult = $this->Backend_model->updateWithWhere($tableName, $updateData);
+			$responseResult = $this->Backend_model->insertData($tableName, $insertData);
+
 			if ($responseResult === TRUE) {
-				RedirectMessageLink("Information updated successfully in <strong> $pageName </strong> ", 'success', $fileName);
+				RedirectMessageLink("Project Added Successfully", 'success', $fileName);
 			} else {
 				RedirectMessageLink('Database Problem', 'danger', $fileName);
 			}
