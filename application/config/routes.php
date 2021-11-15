@@ -56,6 +56,7 @@ $route['home']['get'] = 'frontend_controller/index';
 $route['contact'] = 'frontend_controller/contact';
 $route['project']['get'] = 'frontend_controller/project';
 $route['about']['get'] = 'frontend_controller/about';
+$route['project/(:num)']['get'] = 'frontend_controller/singleproject/$1';
 
 
 $route['admin_login']['get'] = 'backend_controller/index';

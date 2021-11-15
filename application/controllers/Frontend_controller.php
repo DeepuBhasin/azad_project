@@ -64,9 +64,28 @@ class Frontend_controller extends MY_Controller
 		$data = [
 			'title' => $pageName . $this->appendTitle,
 			'breadcrumbs' => $pageName,
-			'pageData' => $this->Backend_model->rowDataWithWhere('footerdiv', ['id' => self::DATABASE_ID])
+			'pageData' => $this->Backend_model->rowDataWithWhere('footerdiv', ['id' => self::DATABASE_ID]),
+			'projectPageData' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.id,pt.title,pc.name,pt.main_image_1,pt.dashboard_status,pt.visibile_status,pt.created_at', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category',  [], 'pt.created_at', 'DESC', false)
+
 		];
 		$this->load->view(view_front_end_path('project'), $data);
+	}
+	public function singleproject($id)
+	{
+		$pageName = 'Project Detail';
+		$data = [
+			'title' => $pageName . $this->appendTitle,
+			'breadcrumbs' => $pageName,
+			'pageData' => $this->Backend_model->rowDataWithWhere('footerdiv', ['id' => self::DATABASE_ID]),
+			'projectPageData' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.*,pc.*', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category', ['pt.id' => $id], 'pt.created_at', 'DESC', true)
+
+		];
+
+		if (empty($data['projectPageData'])) {
+			RedirectMessageLink('Database Problem', 'danger', 'project');
+		}
+
+		$this->load->view(view_front_end_path('singleproject'), $data);
 	}
 	public function about()
 	{

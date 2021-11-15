@@ -5,113 +5,20 @@
 <section class=" portfolio-section">
 	<div class="container">
 		<div class="portfolio-box iso-call">
-			<div class="project-post interior">
-				<div class="project-gallery">
-					<img src="<?= public_front_end_path('upload/portfolio/1.jpg'); ?>" alt="">
-					<div class="hover-box">
-						<div class="inner-hover">
-							<h2><a href="single-project.html">Single Project Title</a></h2>
-							<span>interior</span>
-						</div>
-					</div>
-				</div>
-			</div>
 
-			<div class="project-post buildings">
-				<div class="project-gallery">
-					<img src="<?= public_front_end_path('upload/portfolio/2.jpg'); ?>" alt="">
-					<div class="hover-box">
-						<div class="inner-hover">
-							<h2><a href="single-project.html">Single Project Title</a></h2>
-							<span>building</span>
+			<?php foreach ($projectPageData as $key => $value) : ?>
+				<div class="project-post interior">
+					<div class="project-gallery">
+						<img src="<?= public_front_end_path('upload/projects/' . $value['main_image_1']); ?>" alt="$value['title']">
+						<div class="hover-box">
+							<div class="inner-hover">
+								<h2><a href="<?= base_url('project/' . $value['id']); ?>" title="<?= $value['title'] ?>"><?= $value['title'] ?></a></h2>
+								<span><?= ucfirst($value['name']); ?></span>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-
-			<div class="project-post interior construction">
-				<div class="project-gallery">
-					<img src="<?= public_front_end_path('upload/portfolio/3.jpg'); ?>" alt="">
-					<div class="hover-box">
-						<div class="inner-hover">
-							<h2><a href="single-project.html">Single Project Title</a></h2>
-							<span>construction</span>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="project-post buildings construction">
-				<div class="project-gallery">
-					<img src="<?= public_front_end_path('upload/portfolio/4.jpg'); ?>" alt="">
-					<div class="hover-box">
-						<div class="inner-hover">
-							<h2><a href="single-project.html">Single Project Title</a></h2>
-							<span>house</span>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="project-post buildings">
-				<div class="project-gallery">
-					<img src="<?= public_front_end_path('upload/portfolio/5.jpg'); ?>" alt="">
-					<div class="hover-box">
-						<div class="inner-hover">
-							<h2><a href="single-project.html">Single Project Title</a></h2>
-							<span>architecture</span>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="project-post interior construction">
-				<div class="project-gallery">
-					<img src="<?= public_front_end_path('upload/portfolio/1.jpg'); ?>" alt="">
-					<div class="hover-box">
-						<div class="inner-hover">
-							<h2><a href="single-project.html">Single Project Title</a></h2>
-							<span>interior</span>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="project-post buildings">
-				<div class="project-gallery">
-					<img src="<?= public_front_end_path('upload/portfolio/2.jpg'); ?>" alt="">
-					<div class="hover-box">
-						<div class="inner-hover">
-							<h2><a href="single-project.html">Single Project Title</a></h2>
-							<span>building</span>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="project-post construction">
-				<div class="project-gallery">
-					<img src="<?= public_front_end_path('upload/portfolio/3.jpg'); ?>" alt="">
-					<div class="hover-box">
-						<div class="inner-hover">
-							<h2><a href="single-project.html">Single Project Title</a></h2>
-							<span>construction</span>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="project-post buildings">
-				<div class="project-gallery">
-					<img src="<?= public_front_end_path('upload/portfolio/4.jpg'); ?>" alt="">
-					<div class="hover-box">
-						<div class="inner-hover">
-							<h2><a href="single-project.html">Single Project Title</a></h2>
-							<span>house</span>
-						</div>
-					</div>
-				</div>
-			</div>
+			<?php endforeach; ?>
 
 		</div>
 
