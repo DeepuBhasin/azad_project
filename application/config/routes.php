@@ -68,6 +68,10 @@ $route['addproject'] = 'backend_controller/addproject';
 $route['viewproject']['get'] = 'backend_controller/viewproject';
 $route['showproject/(:num)']['get'] = 'backend_controller/showproject/$1';
 $route['dashboard_status/(:num)/(:num)']['get'] = 'backend_controller/dashboard_status/$1/$2';
+$route['deleteproject/(:num)']['get'] = 'backend_controller/deleteproject/$1';
+$route['editproject/(:num)']['get'] = 'backend_controller/editproject/$1';
+$route['editsave']['post'] = 'backend_controller/editsave';
+$route['changepassword'] = 'backend_controller/changepassword';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

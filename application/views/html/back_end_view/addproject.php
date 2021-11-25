@@ -28,23 +28,19 @@
 						</div>
 						<div class="form-group">
 							<label class="control-label">Slide Shows *</label>
-							<input name="slide_shows[]" class="form-control" type="file" required="" multiple="" accept=" image/png, image/gif, image/jpeg" />
+							<input name="slide_shows[]" class="form-control" type="file" required="" multiple="" accept="image/png, image/gif, image/jpeg" />
 						</div>
 						<div class="form-group">
 							<label class="control-label">Description </label>
 							<textarea name="description" class="form-control" rows="4" placeholder="Enter Description *" required></textarea>
 						</div>
 						<div class="form-group">
-							<label class="control-label">Project Date *</label>
-							<input name="project_date" class="form-control" id="demoDate" type="text" placeholder="Enter Project Date *" required>
+							<label class="control-label">Poject Completion Date *</label>
+							<input name="project_date" class="form-control" id="demoDate" type="text" placeholder="Enter Poject Completion Date *" required>
 						</div>
 						<div class="form-group">
 							<label class="control-label">Location *</label>
 							<input name="location" class="form-control" type="text" placeholder="Enter Location  *" required>
-						</div>
-						<div class="form-group">
-							<label class="control-label">Project Value *</label>
-							<input name="project_value" class="form-control" type="text" placeholder="Enter Project Value *" required>
 						</div>
 						<div class="card-footer">
 							<button class="btn btn-primary icon-btn" type="submit" name="add"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add</button>

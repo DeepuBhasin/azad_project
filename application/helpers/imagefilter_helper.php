@@ -1,5 +1,5 @@
 <?php
-function uploadSingleImage($imageName = null, $imageTempName = null)
+function uploadSingleImage(string $imageName = null, string $imageTempName = null)
 {
     if (empty($imageName) || empty($imageTempName)) {
         return FALSE;
@@ -15,7 +15,7 @@ function uploadSingleImage($imageName = null, $imageTempName = null)
     }
 }
 
-function uploadMultiImage($arrayOfImages = [])
+function uploadMultiImage(array $arrayOfImages = [])
 {
     if (empty($arrayOfImages)) {
         return FALSE;
@@ -34,4 +34,15 @@ function uploadMultiImage($arrayOfImages = [])
     }
     $returnImages = implode(',', $returnImages);
     return $returnImages;
+}
+
+function deleteImage(string $imageName = null)
+{
+    $path = APPPATH . "..\public_html\\front_end\\upload\\projects\\";
+
+    if (unlink($path . $imageName)) {
+        return TRUE;
+    } else {
+        return FALSE;
+    }
 }

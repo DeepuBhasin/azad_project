@@ -52,8 +52,8 @@ class Frontend_controller extends MY_Controller
 		$data = [
 			'title' => $pageName . $this->appendTitle,
 			'breadcrumbs' => $pageName,
-			'pageData' => $this->Backend_model->rowDataWithWhere('footerdiv', ['id' => self::DATABASE_ID]),
-			'contactPageData' => $this->Backend_model->rowDataWithWhere('contact_table', ['id' => self::DATABASE_ID])
+			'pageData' => $this->Backend_model->rowDataWithWhere('footerdiv', '*', ['id' => self::DATABASE_ID]),
+			'contactPageData' => $this->Backend_model->rowDataWithWhere('contact_table', '*', ['id' => self::DATABASE_ID])
 
 		];
 		$this->load->view(view_front_end_path('contact'), $data);
@@ -64,7 +64,7 @@ class Frontend_controller extends MY_Controller
 		$data = [
 			'title' => $pageName . $this->appendTitle,
 			'breadcrumbs' => $pageName,
-			'pageData' => $this->Backend_model->rowDataWithWhere('footerdiv', ['id' => self::DATABASE_ID]),
+			'pageData' => $this->Backend_model->rowDataWithWhere('footerdiv', '*', ['id' => self::DATABASE_ID]),
 			'projectPageData' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.id,pt.title,pc.name,pt.main_image_1,pt.dashboard_status,pt.visibile_status,pt.created_at', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category',  [], 'pt.created_at', 'DESC', false)
 
 		];
@@ -76,7 +76,7 @@ class Frontend_controller extends MY_Controller
 		$data = [
 			'title' => $pageName . $this->appendTitle,
 			'breadcrumbs' => $pageName,
-			'pageData' => $this->Backend_model->rowDataWithWhere('footerdiv', ['id' => self::DATABASE_ID]),
+			'pageData' => $this->Backend_model->rowDataWithWhere('footerdiv', '*', ['id' => self::DATABASE_ID]),
 			'projectPageData' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.*,pc.*', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category', ['pt.id' => $id], 'pt.created_at', 'DESC', true)
 
 		];
@@ -93,8 +93,8 @@ class Frontend_controller extends MY_Controller
 		$data = [
 			'title' => $pageName . $this->appendTitle,
 			'breadcrumbs' => $pageName,
-			'pageData' => $this->Backend_model->rowDataWithWhere('footerdiv', ['id' => self::DATABASE_ID]),
-			'aboutPageData' => $this->Backend_model->rowDataWithWhere('about_table', ['id' => self::DATABASE_ID])
+			'pageData' => $this->Backend_model->rowDataWithWhere('footerdiv', '*', ['id' => self::DATABASE_ID]),
+			'aboutPageData' => $this->Backend_model->rowDataWithWhere('about_table', '*', ['id' => self::DATABASE_ID])
 		];
 		$this->load->view(view_front_end_path('about'), $data);
 	}

@@ -6,9 +6,9 @@
 
                 <table class="table table-hover table-bordered">
                     <tr>
-                        <td colspan="2"><a href="<?= base_url('showproject/' . $pageData['id']); ?>" class="btn btn-success" onclick="return confirm('Are you sure you want to view <?= $pageData['title']; ?> project ?');" title="View Project"><i class="fa fa-check fa-lg"></i> Edit</a>
+                        <td colspan="2"><a href="<?= base_url('editproject/' . $pageData['id']); ?>" class="btn btn-success" onclick="return confirm('Are you sure you want to view <?= $pageData['title']; ?> project ?');" title="View Project"><i class="fa fa-check fa-lg"></i> Edit</a>
 
-                            <a href="<?= base_url('showproject/' . $pageData['id']); ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to view <?= $pageData['title']; ?> project ?');" title="View Project"><i class="fa fa-trash fa-lg"></i> Delete</a>
+                            <a href="<?= base_url('deleteproject/' . $pageData['id']); ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to Delete <?= $pageData['title']; ?> project ?');" title="View Project"><i class="fa fa-trash fa-lg"></i> Delete</a>
                         </td>
                     </tr>
                     <tr>
@@ -44,12 +44,8 @@
                         <td><strong> <?= nl2br($pageData['description']); ?></strong></td>
                     </tr>
                     <tr>
-                        <td>Poject Date</td>
+                        <td>Poject Completion Date</td>
                         <td><strong> <?= date('Y-m-d', strtotime($pageData['project_date'])); ?></strong></td>
-                    </tr>
-                    <tr>
-                        <td>Poject Value</td>
-                        <td><strong> <?= $pageData['project_value'] ?></strong></td>
                     </tr>
                     <tr>
                         <td>Dashboard status</td>
@@ -60,7 +56,7 @@
                         <td><strong> <?= ($pageData['visibile_status'] == 1) ? 'Active' : 'Inactive'; ?></strong></td>
                     </tr>
                     <tr>
-                        <td>Poject Value</td>
+                        <td>Added Date</td>
                         <td><strong> <?= $pageData['created_at'] ?></strong></td>
                     </tr>
                 </table>

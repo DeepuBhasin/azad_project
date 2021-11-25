@@ -6,9 +6,9 @@ class Backend_model extends MY_MODEL
         echo  $this->db->last_query();
         exit;
     }
-    public function rowDataWithWhere(string $tableName = null, array $where = []): array
+    public function rowDataWithWhere(string $tableName = null, string $select, array $where = []): array
     {
-        $query = $this->db->where($where)->get($tableName);
+        $query = $this->db->select($select)->where($where)->get($tableName);
         if ($query->num_rows() == 1) {
             return $query->row_array();
         } else {
@@ -61,6 +61,19 @@ class Backend_model extends MY_MODEL
             return $query->result_array();
         } else {
             return [];
+        }
+    }
+    public function deleteWithWhere(string $tableName = null, array $where = []): bool
+    {
+        $this->db->trans_begin();
+        $this->db->where($where)->delete($tableName);
+
+        if ($this->db->affected_rows()) {
+            $this->db->trans_commit();
+            return TRUE;
+        } else {
+            $this->db->trans_rollback();
+            return FALSE;
         }
     }
 }

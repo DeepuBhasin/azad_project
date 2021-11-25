@@ -32,7 +32,7 @@
                         <!-- User Menu-->
                         <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-lg"></i> <?= $admin_name; ?> </a>
                             <ul class="dropdown-menu settings-menu">
-                                <li><a href="page-user.html"><i class="fa fa-cog fa-lg"></i> Change Password</a></li>
+                                <li><a href="<?= base_url('changepassword'); ?>"><i class="fa fa-cog fa-lg"></i> Change Password</a></li>
                                 <li><a href="<?= base_url('backend_controller/logout'); ?>"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
                             </ul>
                         </li>
@@ -55,28 +55,16 @@
 
                 <ul class="sidebar-menu">
                     <li><a href="<?= base_url('dashboard') ?>"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
-                    <li class="treeview"><a href="#"><i class="fa fa-th-list"></i><span>Projcets</span><i class="fa fa-angle-right"></i></a>
+                    <li><a href="<?= base_url('mainpage') ?>"><i class="fa fa-book"></i><span>Main Page</span></a></li>
+                    <li class="treeview"><a href="#"><i class="fa fa-bookmark"></i><span>Projects</span><i class="fa fa-angle-right"></i></a>
                         <ul class="treeview-menu">
                             <li><a href="<?= base_url('addproject') ?>"><i class="fa fa-circle-o"></i> Add Project</a></li>
                             <li><a href="<?= base_url('viewproject') ?>"><i class="fa fa-circle-o"></i> View Project</a></li>
                         </ul>
                     </li>
-                    <li><a href="<?= base_url('aboutpage') ?>"><i class="fa fa-dashboard"></i><span>About US Page</span></a></li>
-                    <li><a href="<?= base_url('contactpage') ?>"><i class="fa fa-dashboard"></i><span>Contact Page</span></a></li>
-                    <li><a href="<?= base_url('footerdiv') ?>"><i class="fa fa-dashboard"></i><span>Footer Div & Header Div</span></a></li>
-
-                    <li class="treeview"><a href="#"><i class="fa fa-file-text"></i><span>Pages</span><i class="fa fa-angle-right"></i></a>
-                        <ul class="treeview-menu">
-                            <li><a href="blank-page.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-                            <li><a href="page-login.html"><i class="fa fa-circle-o"></i> Login Page</a></li>
-                            <li><a href="page-lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen Page</a></li>
-                            <li><a href="page-user.html"><i class="fa fa-circle-o"></i> User Page</a></li>
-                            <li><a href="page-invoice.html"><i class="fa fa-circle-o"></i> Invoice Page</a></li>
-                            <li><a href="page-calendar.html"><i class="fa fa-circle-o"></i> Calendar Page</a></li>
-                            <li><a href="page-mailbox.html"><i class="fa fa-circle-o"></i> Mailbox</a></li>
-                            <li><a href="page-error.html"><i class="fa fa-circle-o"></i> Error Page</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="<?= base_url('aboutpage') ?>"><i class="fa fa-clone"></i><span>About US Page</span></a></li>
+                    <li><a href="<?= base_url('contactpage') ?>"><i class="fa fa-phone"></i><span>Contact Page</span></a></li>
+                    <li><a href="<?= base_url('footerdiv') ?>"><i class="fa fa-copy"></i><span>Footer Div & Header Div</span></a></li>
                 </ul>
             </section>
         </aside>
