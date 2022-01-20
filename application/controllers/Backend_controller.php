@@ -308,7 +308,7 @@ class Backend_controller extends MY_Controller
 		$fileName = 'viewproject';
 		$tableName = 'project_table';
 
-		$data = $this->Backend_model->rowDataWithWhere($tableName, 'main_image_1,main_image_2,slide_show_images', ['id' => $id]);
+		$data = $this->Backend_model->rowDataWithWhere($tableName, 'main_image_1,main_image_2,p', ['id' => $id]);
 		$respone = $this->Backend_model->deleteWithWhere($tableName, ['id' => $id]);
 
 		if ($respone === TRUE) {
