@@ -18,6 +18,8 @@ class Frontend_controller extends MY_Controller
 		$data = [
 			'title' => $pageName . $this->appendTitle,
 			'breadcrumbs' => $pageName,
+			'pageData' => $this->Backend_model->rowDataWithWhere('footerdiv', '*', ['id' => self::DATABASE_ID]),
+			'contactPageData' => $this->Backend_model->rowDataWithWhere('contact_table', '*', ['id' => self::DATABASE_ID])
 		];
 		$this->load->view(view_front_end_path('index'), $data);
 	}

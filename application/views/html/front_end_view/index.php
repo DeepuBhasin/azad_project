@@ -27,66 +27,59 @@
 
 	<!-- Container -->
 	<div id="container">
-		<header class="clearfix">
-			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-				<div class="top-line">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-8">
-								<ul class="info-list">
-									<li>
-										<i class="fa fa-phone"></i>
-										Call us:
-										<span>1234 - 5678 - 9012</span>
-									</li>
-									<li>
-										<i class="fa fa-envelope-o"></i>
-										Email us:
-										<span>nunforest@gmail.com</span>
-									</li>
-									<li>
-										<i class="fa fa-clock-o"></i>
-										working time:
-										<span>08:00 - 17:00</span>
-									</li>
-								</ul>
-							</div>
-							<div class="col-md-4">
-								<ul class="social-icons">
-									<li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-									<li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-									<li><a class="google" href="#"><i class="fa fa-google-plus"></i></a></li>
-									<li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+		 <!-- Header
+		    ================================================== -->
+			<header class="clearfix">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="top-line">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="info-list">
+                                    <li>
+                                        <i class="fa fa-phone"></i>
+                                        Call us:
+                                        <span><?= $pageData['phone1'] ?> <?= isset($pageData['phone2']) ? ', ' . $pageData['phone2'] : ''; ?></span>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-envelope-o"></i>
+                                        Email us:
+                                        <span><?= $pageData['email'] ?></span>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-clock-o"></i>
+                                        working time:
+                                        <span><?= $pageData['working_hours'] ?></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="<?= base_url('home') ?>"><img src="<?= public_front_end_path('images/logo.png'); ?>" alt="" width="70"></a>
+                    </div>
 
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="container">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="<?= base_url('home') ?>"><img src="<?= public_front_end_path('images/logo.png'); ?>" alt=""></a>
-					</div>
-
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="<?= base_url('home'); ?>">Home</a></li>
-							<li><a href="<?= base_url('project'); ?>">Projects</a></li>
-							<li><a href="<?= base_url('about'); ?>">About</a></li>
-							<li><a href=" <?= base_url('contact'); ?>">Contact</a></li>
-						</ul>
-					</div><!-- /.navbar-collapse -->
-				</div><!-- /.container-fluid -->
-			</nav>
-		</header>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="<?= base_url('home'); ?>" title="Home">Home</a></li>
+                            <li><a href="<?= base_url('project'); ?>" title="Projects">Projects</a></li>
+                            <li><a href="<?= base_url('about'); ?>" title="About">About</a></li>
+                            <li><a href=" <?= base_url('contact'); ?>" title="Contact">Contact</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </header>
 		<!-- End Header -->
 
 		<!-- home-section 
@@ -190,40 +183,6 @@
 		</section>
 		<!-- End home section -->
 
-		<!-- testimonial-section 
-			================================================== -->
-		<section class="testimonial-section">
-			<div class="container">
-				<div class="testimonial-box">
-					<ul class="bxslider">
-						<li>
-							<h2>John Smith</h2>
-							<span>Construct Chief</span>
-							<p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.
-								Aenean dignissim pellentesque felis. Morbi in sem quis dui placerat ornare. Pellentesque
-								odio nisi, euismod in, pharetra a,ultricies in, diam. Sed arcu. Cras consequat.</p>
-						</li>
-						<li>
-							<h2>Besim Dauti</h2>
-							<span>Project Menager</span>
-							<p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.
-								Aenean dignissim pellentesque felis. Morbi in sem quis dui placerat ornare. Pellentesque
-								odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</p>
-						</li>
-						<li>
-							<h2>Quan Ngyen</h2>
-							<span>Electricity Engineer</span>
-							<p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.
-								Aenean dignissim pellentesque felis. Morbi in sem quis dui placerat ornare. Pellentesque
-								odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</p>
-						</li>
-					</ul>
-				</div>
-
-			</div>
-		</section>
-		<!-- End testimonial section -->
-
 
 		<!-- services-section 
 			================================================== -->
@@ -295,15 +254,16 @@
 			<div class="container">
 				<div class="row">
 
-					<div class="col-md-7">
+					<div class="col-md-12">
 						<div class="about-us-box">
-							<h1>about us and our priorities</h1>
+							<h1 class="text-center">about us and our priorities</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat.</p>
+								consequat.
+							</p>
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-4">
 									<div class="about-us-post">
 										<a href="#"><i class="fa fa-building-o"></i></a>
 										<h2>Construction</h2>
@@ -314,18 +274,20 @@
 										<h2>Maintanance</h2>
 										<span>energy repair</span>
 									</div>
+								</div>
+								<div class="col-md-4">
+								<div class="about-us-post">
+										<a href="#"><i class="fa fa-desktop"></i></a>
+										<h2>Good Planning</h2>
+										<span>architecture</span>
+									</div>
 									<div class="about-us-post">
 										<a href="#"><i class="fa fa-desktop"></i></a>
 										<h2>Good Planning</h2>
 										<span>architecture</span>
 									</div>
 								</div>
-								<div class="col-md-6">
-									<div class="about-us-post">
-										<a href="#"><i class="fa fa-desktop"></i></a>
-										<h2>Good Planning</h2>
-										<span>architecture</span>
-									</div>
+								<div class="col-md-4">
 									<div class="about-us-post">
 										<a href="#"><i class="fa fa-users"></i></a>
 										<h2>Awesome Stuff</h2>
@@ -340,20 +302,6 @@
 							</div>
 						</div>
 					</div>
-
-					<div class="col-md-5">
-
-						<div class="about-box">
-							<img src="<?= public_front_end_path('upload/others/about.jpg'); ?>" alt="">
-							<h2>Who we are</h2>
-							<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-								cillum dolore eu fugiat nulla pariatur. Excepteur sint.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
-						</div>
-
-					</div>
-
 				</div>
 			</div>
 		</section>
@@ -449,54 +397,58 @@
 		</section>
 		<!-- End news section -->
 
-		<!-- footer 
+			<!-- footer 
 			================================================== -->
-		<footer>
-			<div class="container">
-				<div class="footer-widgets">
-					<div class="row">
-						<div class="col-md-4">
-							<div class="widgets">
-								<h2>About us</h2>
-								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-									fugiat nulla pariatur.</p>
-								<p>Reprehenderit in voluptate velit esse cillum nulla pariatur.</p>
-							</div>
+	<footer>
+		<div class="container">
+			<div class="footer-widgets">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="widgets">
+							<h2>About us</h2>
+							<p><?= nl2br($pageData['about_us']); ?></p>
 						</div>
-						<div class="col-md-4">
-							<div class="widgets">
-								<h2>Tags</h2>
-								<ul class="tag-list">
-									<li><a href="#">Interior</a></li>
-									<li><a href="#">Website</a></li>
-									<li><a href="#">Development</a></li>
-									<li><a href="#">Medicine</a></li>
-									<li><a href="#">Web Design</a></li>
-									<li><a href="#">Photography</a></li>
-								</ul>
-							</div>
+					</div>
+					<div class="col-md-4">
+						<div class="widgets">
+							<h2>Tags</h2>
+							<ul class="tag-list">
+								<?php
+								$array = explode(',', $pageData['tags']);
+								foreach ($array as $key1 => $value1) :
+								?>
+									<li><a href="#"><?= $value1 ?></a></li>
+								<?php
+								endforeach;
+								?>
+							</ul>
 						</div>
-						<div class="col-md-4">
-							<div class="widgets info-widget">
-								<h2>Working Hours</h2>
-								<p class="first-par">You can contact or visit us during working time.</p>
-								<p><span>Tel: </span> 1234 - 5678 - 9012</p>
-								<p><span>Email: </span> nunforest@gmail.com</p>
-								<p><span>Working Hours: </span> 8:00 a.m - 17:00 a.m</p>
-							</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="widgets info-widget">
+							<h2>Working Hours</h2>
+							<p class="first-par">You can contact or visit us during working time.</p>
+							<p><span>Tel: </span> <?= $pageData['phone1'] ?> <?= isset($pageData['phone2']) ? ', ' . $pageData['phone2'] : ''; ?></p>
+							<p><span>Email: </span> <?= $pageData['email'] ?></p>
+							<p><span>Working Hours: </span> <?= $pageData['working_hours'] ?></p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="last-line">
-				<div class="container">
-					<p class="copyright">
-						&copy; Copyright <?= date('Y'); ?>. "Construct" by Nunforest. All rights reserved.
-					</p>
-				</div>
+		</div>
+		<div class="last-line">
+			<div class="container">
+				<p class="copyright">
+					&copy; Copyright <?= date('Y'); ?>. <?= $pageData['copyright']; ?>
+					<br />
+					Design and Development by <a href="#">Deepinder Singh</a>
+
+				</p>
 			</div>
-		</footer>
-		<!-- End footer -->
+		</div>
+	</footer>
+	<!-- End footer -->
 
 	</div>
 	<!-- End Container -->
