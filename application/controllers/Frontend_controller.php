@@ -19,8 +19,11 @@ class Frontend_controller extends MY_Controller
 			'title' => $pageName . $this->appendTitle,
 			'breadcrumbs' => $pageName,
 			'pageData' => $this->Backend_model->rowDataWithWhere('footerdiv', '*', ['id' => self::DATABASE_ID]),
-			'contactPageData' => $this->Backend_model->rowDataWithWhere('contact_table', '*', ['id' => self::DATABASE_ID])
+			'contactPageData' => $this->Backend_model->rowDataWithWhere('contact_table', '*', ['id' => self::DATABASE_ID]),
+			'projectPageDataBestOne' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.id,pt.title,pc.name,pt.main_image_1,pt.dashboard_status,pt.visibile_status,pt.project_date,pt.created_at,pt.description', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category', ['pt.dashboard_status'=>1], 'pt.created_at', 'DESC',false,['limitStatus'=>true,'limit'=>5,'offset'=>0]),
+			'projectPageDataLastestOne' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.id,pt.title,pc.name,pt.main_image_1,pt.dashboard_status,pt.visibile_status,pt.project_date,pt.created_at,pt.description', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category', [], 'pt.created_at', 'DESC',false,['limitStatus'=>true,'limit'=>5,'offset'=>0])
 		];
+
 		$this->load->view(view_front_end_path('index'), $data);
 	}
 	public function contact()
@@ -67,7 +70,7 @@ class Frontend_controller extends MY_Controller
 			'title' => $pageName . $this->appendTitle,
 			'breadcrumbs' => $pageName,
 			'pageData' => $this->Backend_model->rowDataWithWhere('footerdiv', '*', ['id' => self::DATABASE_ID]),
-			'projectPageData' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.id,pt.title,pc.name,pt.main_image_1,pt.dashboard_status,pt.visibile_status,pt.created_at', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category',  [], 'pt.created_at', 'DESC', false)
+			'projectPageData' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.id,pt.title,pc.name,pt.main_image_1,pt.dashboard_status,pt.visibile_status,pt.created_at', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category',  [], 'pt.created_at', 'DESC', false,['limitStatus'=>false])
 
 		];
 		$this->load->view(view_front_end_path('project'), $data);
@@ -77,9 +80,9 @@ class Frontend_controller extends MY_Controller
 		$pageName = 'Project Detail';
 		$data = [
 			'title' => $pageName . $this->appendTitle,
-			'breadcrumbs' => $pageName,
+			'breadcrumbs' => ''.$pageName,
 			'pageData' => $this->Backend_model->rowDataWithWhere('footerdiv', '*', ['id' => self::DATABASE_ID]),
-			'projectPageData' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.*,pc.*', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category', ['pt.id' => $id], 'pt.created_at', 'DESC', true)
+			'projectPageData' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.*,pc.*', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category', ['pt.id' => $id], 'pt.created_at', 'DESC', true,['limitStatus'=>false])
 
 		];
 

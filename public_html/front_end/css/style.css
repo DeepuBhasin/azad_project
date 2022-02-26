@@ -722,7 +722,7 @@ section.services-section .services-box .services-post .services-content a:hover 
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 30px;
+  /* width: 30px; */
   background: #a0ce4e;
   height: 1px;
 }

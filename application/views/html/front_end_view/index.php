@@ -65,7 +65,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="<?= base_url('home') ?>"><img src="<?= public_front_end_path('images/logo.png'); ?>" alt="" width="70"></a>
+                        <a class="navbar-brand" href="<?= base_url('home') ?>"><img src="<?= public_front_end_path('images/logo.png'); ?>" alt="" width="50"></a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -186,59 +186,34 @@
 
 		<!-- services-section 
 			================================================== -->
+			<style>
+				.edit-h1{
+					font-size: 18px;
+					font-weight: 700;
+					text-transform: uppercase;
+					color: #000;
+					margin: 0 0 20px;
+					padding-bottom: 20px;
+					position: relative;
+				}
+			</style>
 		<section class="services-section">
 			<div class="container">
+			  <h2 class="text-center edit-h1">Best Projects</h2>
 				<div class="services-box">
 					<div class="row">
-
+					<?php foreach ($projectPageDataBestOne as $key => $value) : ?>
 						<div class="col-md-3">
 							<div class="services-post">
-								<img src="<?= public_front_end_path('upload/others/5.jpg'); ?>" alt="">
+							<img src="<?= public_front_end_path('upload/projects/' . $value['main_image_1']); ?>" alt="<?= $value['title'];?>">
 								<div class="services-content">
-									<h2>Elegant Garden</h2>
-									<p>Aenean sed justo tincidunt, vulputate nisi sit amet, rutrum ligula. Pellentesque
-										dictum aliquam ornare. Sed elit lectus.</p>
-									<a href="garden.html">Read More <i class="fa fa-angle-right"></i></a>
+									<h2><a href="<?= base_url('project/' . $value['id']); ?>" title="<?= $value['title'] ?>"><?= $value['title'] ?></a></h2>
+									<p><?= substr($value['description'],0,130)?> ...</p>
+									<a href="<?= base_url('project/' . $value['id']); ?>">Read More <i class="fa fa-angle-right"></i></a>
 								</div>
 							</div>
 						</div>
-
-						<div class="col-md-3">
-							<div class="services-post">
-								<img src="<?= public_front_end_path('upload/others/2.jpg'); ?>" alt="">
-								<div class="services-content">
-									<h2>Small &amp; Large Building</h2>
-									<p>Aenean sed justo tincidunt, vulputate nisi sit amet, rutrum ligula. Pellentesque
-										dictum aliquam ornare. Sed elit lectus.</p>
-									<a href="buildings.html">Read More <i class="fa fa-angle-right"></i></a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-3">
-							<div class="services-post">
-								<img src="<?= public_front_end_path('upload/others/3.jpg'); ?>" alt="">
-								<div class="services-content">
-									<h2>Perfect Plans &amp; Projecting</h2>
-									<p>Aenean sed justo tincidunt, vulputate nisi sit amet, rutrum ligula. Pellentesque
-										dictum aliquam ornare. Sed elit lectus.</p>
-									<a href="projecting.html">Read More <i class="fa fa-angle-right"></i></a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-3">
-							<div class="services-post">
-								<img src="<?= public_front_end_path('upload/others/4.jpg'); ?>" alt="">
-								<div class="services-content">
-									<h2>Electricy installation</h2>
-									<p>Aenean sed justo tincidunt, vulputate nisi sit amet, rutrum ligula. Pellentesque
-										dictum aliquam ornare. Sed elit lectus.</p>
-									<a href="projecting.html">Read More <i class="fa fa-angle-right"></i></a>
-								</div>
-							</div>
-						</div>
-
+					<?php endforeach;?>	
 					</div>
 				</div>
 
@@ -256,50 +231,44 @@
 
 					<div class="col-md-12">
 						<div class="about-us-box">
-							<h1 class="text-center">about us and our priorities</h1>
+							<h1 class="text-center edit-h1">about us and our priorities</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 								consequat.
 							</p>
-							<div class="row">
+							<!-- <div class="row">
 								<div class="col-md-4">
 									<div class="about-us-post">
 										<a href="#"><i class="fa fa-building-o"></i></a>
 										<h2>Construction</h2>
-										<span>build homes</span>
 									</div>
 									<div class="about-us-post">
 										<a href="#"><i class="fa fa-cogs"></i></a>
 										<h2>Maintanance</h2>
-										<span>energy repair</span>
 									</div>
 								</div>
 								<div class="col-md-4">
 								<div class="about-us-post">
 										<a href="#"><i class="fa fa-desktop"></i></a>
 										<h2>Good Planning</h2>
-										<span>architecture</span>
 									</div>
 									<div class="about-us-post">
 										<a href="#"><i class="fa fa-desktop"></i></a>
 										<h2>Good Planning</h2>
-										<span>architecture</span>
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="about-us-post">
 										<a href="#"><i class="fa fa-users"></i></a>
 										<h2>Awesome Stuff</h2>
-										<span>1000+ workers</span>
 									</div>
 									<div class="about-us-post">
 										<a href="#"><i class="fa fa-building-o"></i></a>
 										<h2>Construction</h2>
-										<span>build homes</span>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
@@ -311,85 +280,25 @@
 			================================================== -->
 		<section class="news-section">
 			<div class="container">
-
+			  <h1 class="text-center edit-h1">Latest Projects</h1>
 				<div class="news-box owl-wrapper">
 					<div class="owl-carousel" data-num="4">
 
+					<?php foreach ($projectPageDataLastestOne as $key => $value) : ?>
 						<div class="item news-post">
 							<div class="news-gallery">
-								<img src="<?= public_front_end_path('upload/blog/news1.jpg'); ?>" alt="">
+							<img src="<?= public_front_end_path('upload/projects/' . $value['main_image_1']); ?>" alt="<?= $value['title'];?>">
 								<div class="date-post">
-									<p>June <span>15</span></p>
+									<p><?= date('d M Y',strtotime($value['project_date']))?></p>
 								</div>
 							</div>
 							<div class="news-content">
-								<h2><a href="single-post.html">Our News post 1</a></h2>
-								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur.</p>
-								<a href="single-post.html">Read More <i class="fa fa-angle-right"></i></a>
+								<h2><a href="<?= base_url('project/' . $value['id']); ?>" title="<?= $value['title'] ?>"><?= $value['title'] ?></a></h2>
+								<p><?= substr($value['description'],0,130)?> ...</p>
+								<a href="<?= base_url('project/' . $value['id']); ?>">Read More <i class="fa fa-angle-right"></i></a>
 							</div>
 						</div>
-
-						<div class="item news-post">
-							<div class="news-gallery">
-								<img src="<?= public_front_end_path('upload/blog/news2.jpg'); ?>" alt="">
-								<div class="date-post">
-									<p>June <span>17</span></p>
-								</div>
-							</div>
-							<div class="news-content">
-								<h2><a href="single-post.html">Our News post 2</a></h2>
-								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur.</p>
-								<a href="single-post.html">Read More <i class="fa fa-angle-right"></i></a>
-							</div>
-						</div>
-
-						<div class="item news-post">
-							<div class="news-gallery">
-								<img src="<?= public_front_end_path('upload/blog/news3.jpg'); ?>" alt="">
-								<div class="date-post">
-									<p>June <span>20</span></p>
-								</div>
-							</div>
-							<div class="news-content">
-								<h2><a href="single-post.html">Our News post 3</a></h2>
-								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur.</p>
-								<a href="single-post.html">Read More <i class="fa fa-angle-right"></i></a>
-							</div>
-						</div>
-
-						<div class="item news-post">
-							<div class="news-gallery">
-								<img src="<?= public_front_end_path('upload/blog/news1.jpg'); ?>" alt="">
-								<div class="date-post">
-									<p>July <span>15</span></p>
-								</div>
-							</div>
-							<div class="news-content">
-								<h2><a href="single-post.html">Our News post 4</a></h2>
-								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur.</p>
-								<a href="single-post.html">Read More <i class="fa fa-angle-right"></i></a>
-							</div>
-						</div>
-
-						<div class="item news-post">
-							<div class="news-gallery">
-								<img src="<?= public_front_end_path('upload/blog/news2.jpg'); ?>" alt="">
-								<div class="date-post">
-									<p>July <span>15</span></p>
-								</div>
-							</div>
-							<div class="news-content">
-								<h2><a href="single-post.html">Our News post 5</a></h2>
-								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur..</p>
-								<a href="single-post.html">Read More <i class="fa fa-angle-right"></i></a>
-							</div>
-						</div>
-
+						<?php endforeach; ?>	
 					</div>
 				</div>
 

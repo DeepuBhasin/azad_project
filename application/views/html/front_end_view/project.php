@@ -9,7 +9,7 @@
 			<?php foreach ($projectPageData as $key => $value) : ?>
 				<div class="project-post interior">
 					<div class="project-gallery">
-						<img src="<?= public_front_end_path('upload/projects/' . $value['main_image_1']); ?>" alt="$value['title']">
+						<img src="<?= public_front_end_path('upload/projects/' . $value['main_image_1']); ?>" alt="<?= $value['title'];?>">
 						<div class="hover-box">
 							<div class="inner-hover">
 								<h2><a href="<?= base_url('project/' . $value['id']); ?>" title="<?= $value['title'] ?>"><?= $value['title'] ?></a></h2>

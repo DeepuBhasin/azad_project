@@ -260,7 +260,7 @@ class Backend_controller extends MY_Controller
 			'title' => $pageName . $this->appendTitle,
 			'breadcrumbs' => $pageName,
 			'admin_name' => $this->userData(),
-			'pageData' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.id,pt.title,pc.name,pt.main_image_1,pt.dashboard_status,pt.visibile_status,pt.created_at', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category',  [], 'pt.created_at', 'DESC', false)
+			'pageData' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.id,pt.title,pc.name,pt.main_image_1,pt.dashboard_status,pt.visibile_status,pt.created_at', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category',  [], 'pt.created_at', 'DESC', false,['limitStatus'=>true,'limit'=>'ALL','offset'=>''])
 		];
 
 
