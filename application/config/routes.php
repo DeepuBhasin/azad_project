@@ -49,9 +49,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'frontend_controller';
-
-
+$route['default_controller'] = 'frontend_controller/index';
 $route['home']['get'] = 'frontend_controller/index';
 $route['contact'] = 'frontend_controller/contact';
 $route['project']['get'] = 'frontend_controller/project';
@@ -61,6 +59,7 @@ $route['project/(:num)']['get'] = 'frontend_controller/singleproject/$1';
 
 $route['admin_login']['get'] = 'backend_controller/index';
 $route['dashboard']['get']  = 'backend_controller/dashboard';
+$route['homepage']  = 'backend_controller/homepage';
 $route['footerdiv'] = 'backend_controller/footerdiv';
 $route['contactpage'] = 'backend_controller/contactpage';
 $route['aboutpage'] = 'backend_controller/aboutpage';

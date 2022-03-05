@@ -199,9 +199,9 @@ class Backend_controller extends MY_Controller
 		if (isset($_POST['add']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
-			$singleImageResponse1 = uploadSingleImage($_FILES['main_image_1']['name'], $_FILES['main_image_1']['tmp_name']);
-			$singleImageResponse2 = uploadSingleImage($_FILES['main_image_2']['name'], $_FILES['main_image_2']['tmp_name']);
-			$multipleImageResponse = uploadMultiImage($_FILES['slide_shows']);
+			$singleImageResponse1 = uploadSingleImage($_FILES['main_image_1']['name'], $_FILES['main_image_1']['tmp_name'], 'project');
+			$singleImageResponse2 = uploadSingleImage($_FILES['main_image_2']['name'], $_FILES['main_image_2']['tmp_name'], 'project');
+			$multipleImageResponse = uploadMultiImage($_FILES['slide_shows'], 'project');
 
 
 			if ($singleImageResponse1 == FALSE || $singleImageResponse2 == FALSE || $multipleImageResponse == FALSE) {
@@ -260,7 +260,7 @@ class Backend_controller extends MY_Controller
 			'title' => $pageName . $this->appendTitle,
 			'breadcrumbs' => $pageName,
 			'admin_name' => $this->userData(),
-			'pageData' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.id,pt.title,pc.name,pt.main_image_1,pt.dashboard_status,pt.visibile_status,pt.created_at', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category',  [], 'pt.created_at', 'DESC', false,['limitStatus'=>true,'limit'=>'ALL','offset'=>''])
+			'pageData' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.id,pt.title,pc.name,pt.main_image_1,pt.dashboard_status,pt.visibile_status,pt.created_at', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category',  [], 'pt.created_at', 'DESC', false, ['limitStatus' => true, 'limit' => 'ALL', 'offset' => ''])
 		];
 
 
@@ -276,7 +276,7 @@ class Backend_controller extends MY_Controller
 			'title' => $pageName . $this->appendTitle,
 			'breadcrumbs' => $pageName,
 			'admin_name' => $this->userData(),
-			'pageData' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.*,pc.name', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category', ['pt.id' => $project_id],  'pt.created_at', 'DESC', true)
+			'pageData' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.*,pc.name', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category', ['pt.id' => $project_id],  'pt.created_at', 'DESC', true, ['limitStatus' => false])
 		];
 
 
@@ -313,12 +313,12 @@ class Backend_controller extends MY_Controller
 
 		if ($respone === TRUE) {
 
-			deleteImage($data['main_image_1']);
-			deleteImage($data['main_image_2']);
+			deleteImage($data['main_image_1'], 'project');
+			deleteImage($data['main_image_2'], 'project');
 
 			$slide_show_images = explode(',', $data['slide_show_images']);
 			foreach ($slide_show_images as $key => $value) {
-				deleteImage($value);
+				deleteImage($value, 'project');
 			}
 		}
 		RedirectMessageLink("Project Deleted Successfully", 'success', $fileName);
@@ -336,7 +336,7 @@ class Backend_controller extends MY_Controller
 			'breadcrumbs' => $pageName,
 			'admin_name' => $this->userData(),
 			'projectCategory' => $this->Backend_model->rowsData('project_category', 'id,name', 'name', 'ASC'),
-			'pageData' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.*,pc.name', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category', ['pt.id' => $id],  'pt.created_at', 'DESC', true)
+			'pageData' => $this->Backend_model->rowDataWithSingleInnerJoin('pt.*,pc.name', 'project_table as pt', 'project_category as pc', 'pc.id=pt.category', ['pt.id' => $id],  'pt.created_at', 'DESC', true, ['limitStatus' => false])
 		];
 		$filePath = view_back_end_path($fileName);
 		$this->load->view($filePath, $data);
@@ -366,31 +366,31 @@ class Backend_controller extends MY_Controller
 
 
 			if (!empty($_FILES['main_image_1']['name'])) {
-				$singleImageResponse1 = uploadSingleImage($_FILES['main_image_1']['name'], $_FILES['main_image_1']['tmp_name']);
+				$singleImageResponse1 = uploadSingleImage($_FILES['main_image_1']['name'], $_FILES['main_image_1']['tmp_name'], 'project');
 				$updateData['main_image_1'] = $singleImageResponse1;
 				if ($singleImageResponse1 == FALSE) {
 					RedirectMessageLink('Server Error. Images not upload', 'danger', $fileName);
 				}
-				deleteImage($data['main_image_1']);
+				deleteImage($data['main_image_1'], 'project');
 			}
 			if (!empty($_FILES['main_image_2']['name'])) {
-				$singleImageResponse2 = uploadSingleImage($_FILES['main_image_2']['name'], $_FILES['main_image_2']['tmp_name']);
+				$singleImageResponse2 = uploadSingleImage($_FILES['main_image_2']['name'], $_FILES['main_image_2']['tmp_name'], 'project');
 				$updateData['main_image_2'] = $singleImageResponse2;
 				if ($singleImageResponse2 == FALSE) {
 					RedirectMessageLink('Server Error. Images not upload', 'danger', $fileName);
 				}
-				deleteImage($data['main_image_2']);
+				deleteImage($data['main_image_2'], 'project');
 			}
 			if (!empty($_FILES['slide_shows']['name'][0])) {
 
-				$multipleImageResponse = uploadMultiImage($_FILES['slide_shows']);
+				$multipleImageResponse = uploadMultiImage($_FILES['slide_shows'], 'project');
 				$updateData['slide_show_images'] = $multipleImageResponse;
 				if ($multipleImageResponse == FALSE) {
 					RedirectMessageLink('Server Error. Images not upload', 'danger', $fileName);
 				}
 				$slide_show_images = explode(',', $data['slide_show_images']);
 				foreach ($slide_show_images as $key => $value) {
-					deleteImage($value);
+					deleteImage($value, 'project');
 				}
 			}
 			$responseResult = $this->Backend_model->updateWithWhere($tableName, $updateData, ['id' => $id]);
@@ -449,6 +449,58 @@ class Backend_controller extends MY_Controller
 			'admin_name' => $this->userData(),
 		];
 
+
+		$filePath = view_back_end_path($fileName);
+		$this->load->view($filePath, $data);
+	}
+	public function homepage()
+	{
+		$this->loginUserAuthenticate();
+		$pageName = 'Home Page';
+		$fileName = 'homepage';
+		$tableName = 'home_table';
+		$whereConditon = ['id' => self::DATABASE_ID];
+		$this->load->helper(['imagefilter']);
+
+		$updateData = [
+			'about_heading' => $this->input->post('about_heading'),
+			'about_description' => $this->input->post('about_description')
+		];
+
+		if (isset($_POST['save']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+
+			$data = $this->Backend_model->rowDataWithWhere($tableName, 'slide_show_images', $whereConditon);
+
+			if (!empty($_FILES['slide_shows']['name'][0])) {
+
+				$multipleImageResponse = uploadMultiImage($_FILES['slide_shows'], 'slideshow');
+				if ($multipleImageResponse == FALSE) {
+					RedirectMessageLink('Server Error. Images not upload', 'danger', $fileName);
+				}
+
+				if (isset($data['slide_show_images']) && !empty($data['slide_show_images'])) {
+					$slide_show_images = explode(',', $data['slide_show_images']);
+					foreach ($slide_show_images as $key => $value) {
+						@deleteImage($value, 'slideshow');
+					}
+				}
+				$updateData['slide_show_images'] = $multipleImageResponse;
+			}
+
+			$responseResult = $this->Backend_model->updateWithWhere($tableName, $updateData, $whereConditon);
+			if ($responseResult === TRUE) {
+				RedirectMessageLink("Information updated successfully in <strong> $pageName </strong> ", 'success', $fileName);
+			} else {
+				RedirectMessageLink('Database Problem', 'danger', $fileName);
+			}
+		}
+
+		$data = [
+			'title' => $pageName . $this->appendTitle,
+			'breadcrumbs' => $pageName,
+			'admin_name' => $this->userData(),
+			'pageData' => $this->Backend_model->rowDataWithWhere($tableName, '*', $whereConditon)
+		];
 
 		$filePath = view_back_end_path($fileName);
 		$this->load->view($filePath, $data);

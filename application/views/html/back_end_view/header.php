@@ -55,7 +55,7 @@
 
                 <ul class="sidebar-menu">
                     <li><a href="<?= base_url('dashboard') ?>"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
-                    <li><a href="<?= base_url('mainpage') ?>"><i class="fa fa-book"></i><span>Main Page</span></a></li>
+                    <li><a href="<?= base_url('homepage') ?>"><i class="fa fa-book"></i><span>Home Page</span></a></li>
                     <li class="treeview"><a href="#"><i class="fa fa-bookmark"></i><span>Projects</span><i class="fa fa-angle-right"></i></a>
                         <ul class="treeview-menu">
                             <li><a href="<?= base_url('addproject') ?>"><i class="fa fa-circle-o"></i> Add Project</a></li>

@@ -1,9 +1,11 @@
 <?php
+$CI = &get_instance();
+
 function postDataFilterhtml($data)
 {
-    $CI = &get_instance();
+    global $CI;
     $data = trim($data);
-    $data = htmlspecialchars($data);
+    $data = htmlentities($data);
     $data = mysqli_real_escape_string($CI->db->conn_id, $data);
     return $data;
 }
