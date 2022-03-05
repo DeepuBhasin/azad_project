@@ -25,7 +25,7 @@
                 <td><?= ++$c ?></td>
                 <td><?= $value['title']; ?></td>
                 <td><?= ucfirst($value['name']); ?></td>
-                <td><img src=" <?= public_front_end_path('/upload/projects/' . $value['main_image_1']); ?>" alt="<?= $value['main_image_1'] ?>" class="img-thumbnail " width="100" /></td>
+                <td><img src=" <?= public_front_end_path('/upload/projects/compress/' . $value['main_image_1']); ?>" alt="<?= $value['main_image_1'] ?>" class="img-thumbnail " width="100" /></td>
                 <td><?= ($value['dashboard_status'] == 1) ? 'Yes' : 'No'; ?></td>
                 <td><?= ($value['visibile_status'] == 1) ? 'Active' : 'Inactive'; ?></td>
                 <td><?= $value['created_at']; ?></td>

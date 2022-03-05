@@ -26,7 +26,7 @@
 									<input name="main_image_1" class="form-control" type="file" accept="image/png, image/gif, image/jpeg" />
 								</div>
 								<div class="col-sm-6">
-									<img src=" <?= public_front_end_path('/upload/projects/' . $pageData['main_image_1']); ?>" alt="<?= $pageData['main_image_1'] ?>" class="img-thumbnail " width="80" />
+									<img src=" <?= public_front_end_path('/upload/projects/compress/' . $pageData['main_image_1']); ?>" alt="<?= $pageData['main_image_1'] ?>" class="img-thumbnail " width="80" />
 								</div>
 							</div>
 							<div class="form-group">
@@ -36,7 +36,7 @@
 										<input name="main_image_2" class="form-control" type="file" accept="image/png, image/gif, image/jpeg" />
 									</div>
 									<div class="col-sm-6">
-										<img src=" <?= public_front_end_path('/upload/projects/' . $pageData['main_image_2']); ?>" alt="<?= $pageData['main_image_1'] ?>" class="img-thumbnail " width="80" />
+										<img src=" <?= public_front_end_path('/upload/projects/compress/' . $pageData['main_image_2']); ?>" alt="<?= $pageData['main_image_1'] ?>" class="img-thumbnail " width="80" />
 									</div>
 								</div>
 
@@ -53,7 +53,7 @@
 
 										foreach ($arrayImages as $key => $value) :
 										?>
-											<img src=" <?= public_front_end_path('/upload/projects/' . $value); ?>" alt="<?= $value ?>" class="img-thumbnail " width="80" />
+											<img src=" <?= public_front_end_path('/upload/projects/compress/' . $value); ?>" alt="<?= $value ?>" class="img-thumbnail " width="80" />
 										<?php endforeach; ?>
 									</div>
 								</div>

@@ -63,7 +63,7 @@ function uploadMultiImage(array $arrayOfImages = [], $imageCategory = 'project')
         $target = $originalPath . $upload;
         move_uploaded_file($source, $target);           // upload original file
         copy($target,  $compressPath . $upload);        // upload orginal file to compress folder
-        compress($compressPath . $upload, $compressPath . $upload, 20);  // replace and compress same file in the compress folder 
+        compress($compressPath . $upload, $compressPath . $upload, 10);  // replace and compress same file in the compress folder 
         array_push($returnImages, $upload);
     }
     $returnImages = implode(',', $returnImages);

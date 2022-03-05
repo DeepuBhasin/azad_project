@@ -21,11 +21,11 @@
                     </tr>
                     <tr>
                         <td>Main image 1</td>
-                        <td><img src=" <?= public_front_end_path('/upload/projects/compress' . $pageData['main_image_1']); ?>" alt="<?= $pageData['main_image_1'] ?>" class="img-thumbnail " width="100" /></td>
+                        <td><img src=" <?= public_front_end_path('/upload/projects/compress/' . $pageData['main_image_1']); ?>" alt="<?= $pageData['main_image_1'] ?>" class="img-thumbnail " width="100" /></td>
                     </tr>
                     <tr>
                         <td>Main image 2</td>
-                        <td><img src=" <?= public_front_end_path('/upload/projects/compress' . $pageData['main_image_2']); ?>" alt="<?= $pageData['main_image_2'] ?>" class="img-thumbnail " width="100" /></td>
+                        <td><img src=" <?= public_front_end_path('/upload/projects/compress/' . $pageData['main_image_2']); ?>" alt="<?= $pageData['main_image_2'] ?>" class="img-thumbnail " width="100" /></td>
                     </tr>
                     <tr>
                         <td>Slide Show Images</td>
@@ -35,7 +35,7 @@
 
                             foreach ($arrayImages as $key => $value) :
                             ?>
-                                <img src=" <?= public_front_end_path('/upload/projects/compress' . $value); ?>" alt="<?= $value ?>" class="img-thumbnail " width="100" />
+                                <img src=" <?= public_front_end_path('/upload/projects/compress/' . $value); ?>" alt="<?= $value ?>" class="img-thumbnail " width="100" />
                             <?php endforeach; ?>
                         </td>
                     </tr>

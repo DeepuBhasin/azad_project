@@ -97,8 +97,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-7">
-						<img src="<?= public_front_end_path('upload/projects/' . $projectPageData['main_image_1']); ?>" alt="<?= $projectPageData['title']; ?>" class="img-thumbnail">
-						<img src="<?= public_front_end_path('upload/projects/' . $projectPageData['main_image_2']); ?>" alt="<?= $projectPageData['title']; ?>" class="img-thumbnail">
+						<img src="<?= public_front_end_path('upload/projects/compress/' . $projectPageData['main_image_1']); ?>" alt="<?= $projectPageData['title']; ?>" class="img-thumbnail">
+						<img src="<?= public_front_end_path('upload/projects/compress/' . $projectPageData['main_image_2']); ?>" alt="<?= $projectPageData['title']; ?>" class="img-thumbnail">
 					</div>
 					<div class="col-md-5">
 						<div class="project-content">
@@ -132,7 +132,7 @@
 						?>
 							<div class="item project-post">
 								<div class="project-gallery">
-									<img src="<?= public_front_end_path('upload/projects/' . $value); ?>" alt="" class="img-thumbnail">
+									<img src="<?= public_front_end_path('upload/projects/compress/' . $value); ?>" alt="" class="img-thumbnail">
 								</div>
 							</div>
 						<?php endforeach; ?>
