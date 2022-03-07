@@ -51,23 +51,19 @@ class Backend_model extends MY_MODEL
             return FALSE;
         }
     }
-    public function rowDataWithSingleInnerJoin(string $select = null, string $fromTable = null, string $joinTable = null, string $relationOn = null, array $where = [], string $orderby = null, $sortby = 'ASC', bool $rowStatus = false,$limitData = []): array
+    public function rowDataWithSingleInnerJoin(string $select = null, string $fromTable = null, string $joinTable = null, string $relationOn = null, array $where = [], string $orderby = null, $sortby = 'ASC', bool $rowStatus = false, $limitData = []): array
     {
         $query = $this->db->select($select)->from($fromTable)->join($joinTable, $relationOn)->where($where)->order_by($orderby, $sortby);
 
-        if($limitData['limitStatus']==true){
-            if($limitData['limit']==='ALL'){
+        if ($limitData['limitStatus'] == true) {
+            if ($limitData['limit'] === 'ALL') {
                 $query = $query->get();
-            }else {
-                $query = $query->limit($limitData['limit'],$limitData['offset'])->get();
+            } else {
+                $query = $query->limit($limitData['limit'], $limitData['offset'])->get();
             }
-        }else if($limitData['limitStatus']==false){
+        } else if ($limitData['limitStatus'] == false) {
             $query = $query->get();
         }
-
-        // echo $this->db->last_query();
-        // exit;
-
 
         if ($rowStatus == true) {
             return !empty($query->row_array()) ? $query->row_array() : [];

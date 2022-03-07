@@ -128,7 +128,7 @@
 		</style>
 		<section class="services-section">
 			<div class="container">
-				<h2 class="text-center edit-h1">Best Projects</h2>
+				<h2 class="text-center edit-h1">Featured Work</h2>
 				<div class="services-box">
 					<div class="row">
 						<?php foreach ($projectPageDataBestOne as $key => $value) : ?>

@@ -108,7 +108,7 @@
 								<ul>
 									<li><i class="fa fa-calendar"></i> <span>Date:</span> <?= date('d-m-Y', strtotime($projectPageData['project_date'])) ?></li>
 									<li><i class="fa fa-map-marker"></i> <span>Location:</span> <?= $projectPageData['location'] ?></li>
-									<li><i class="fa fa-usd"></i> <span>Value:</span> <?= $projectPageData['project_value'] ?></li>
+									<!-- <li><i class="fa fa-usd"></i> <span>Value:</span> <?= $projectPageData['project_value'] ?></li> -->
 								</ul>
 							</div>
 						</div>
