@@ -20,11 +20,11 @@
 						</div>
 						<div class="form-group">
 							<label class="control-label">Main Image 1 *</label>
-							<input name="main_image_1" class="form-control" type="file" required accept="image/png, image/gif, image/jpeg" />
+							<input name="main_image_1" class="form-control" type="file" required accept="image/jpeg" />
 						</div>
 						<div class="form-group">
 							<label class="control-label">Main Image 2 *</label>
-							<input name="main_image_2" class="form-control" type="file" required accept="image/png, image/gif, image/jpeg" />
+							<input name="main_image_2" class="form-control" type="file" required accept="image/jpeg" />
 						</div>
 						<div class="form-group">
 							<label class="control-label">Slide Shows *</label>

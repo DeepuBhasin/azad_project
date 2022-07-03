@@ -32,7 +32,8 @@ function uploadSingleImage(string $imageName = null, string $imageTempName = nul
     if (move_uploaded_file($source, $target)) {
 
         copy($target,  $compressPath . $upload);        // upload orginal file to compress folder
-        compress($compressPath . $upload, $compressPath . $upload, 20);  // replace and compress same file in the compress folder 
+        // compress($compressPath . $upload, $compressPath . $upload, 20);  // replace and compress same file in the compress folder 
+        resize_image($compressPath . $upload, 500,500); // replace and Resize same file in the compress 
         return $upload;
     } else {
         return FALSE;
@@ -63,7 +64,9 @@ function uploadMultiImage(array $arrayOfImages = [], $imageCategory = 'project')
         $target = $originalPath . $upload;
         move_uploaded_file($source, $target);           // upload original file
         copy($target,  $compressPath . $upload);        // upload orginal file to compress folder
-        compress($compressPath . $upload, $compressPath . $upload, 10);  // replace and compress same file in the compress folder 
+        // compress($compressPath . $upload, $compressPath . $upload, 10);  // replace and compress same file in the compress folder 
+
+        resize_image($compressPath . $upload, 500, 500);  // replace and Resize same file in the compress 
         array_push($returnImages, $upload);
     }
     $returnImages = implode(',', $returnImages);
@@ -103,4 +106,24 @@ function compress($source, $destination, $quality)
     imagejpeg($image, $destination, $quality);
 
     return $destination;
+}
+
+function resize_image($file, $w, $h)
+{   
+    
+    list($width, $height) = getimagesize($file);
+    $r = $width / $height;
+    if ($w / $h > $r) {
+        $newwidth = $h * $r;
+        $newheight = $h;
+    } else {
+        $newheight = $w / $r;
+        $newwidth = $w;
+    }
+    $dst = imagecreatetruecolor($newwidth, $newheight);
+    $src = imagecreatefromjpeg($file);
+    imagecopyresized($dst, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+    imagejpeg($dst, $file);
+
+    return $dst;
 }

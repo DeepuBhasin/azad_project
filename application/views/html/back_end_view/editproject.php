@@ -23,7 +23,7 @@
 							<label class="control-label">Main Image 1 *</label>
 							<div class="row">
 								<div class="col-sm-6">
-									<input name="main_image_1" class="form-control" type="file" accept="image/png, image/gif, image/jpeg" />
+									<input name="main_image_1" class="form-control" type="file" accept="image/jpeg" />
 								</div>
 								<div class="col-sm-6">
 									<img src=" <?= public_front_end_path('/upload/projects/compress/' . $pageData['main_image_1']); ?>" alt="<?= $pageData['main_image_1'] ?>" class="img-thumbnail " width="80" />
@@ -33,7 +33,7 @@
 								<label class="control-label">Main Image 2 *</label>
 								<div class="row">
 									<div class="col-sm-6">
-										<input name="main_image_2" class="form-control" type="file" accept="image/png, image/gif, image/jpeg" />
+										<input name="main_image_2" class="form-control" type="file" accept="image/jpeg" />
 									</div>
 									<div class="col-sm-6">
 										<img src=" <?= public_front_end_path('/upload/projects/compress/' . $pageData['main_image_2']); ?>" alt="<?= $pageData['main_image_1'] ?>" class="img-thumbnail " width="80" />
@@ -45,7 +45,7 @@
 								<div class="row">
 									<div class="col-sm-6">
 										<label class="control-label">Slide Shows *</label>
-										<input name="slide_shows[]" class="form-control" type="file"="" multiple="" accept=" image/png, image/gif, image/jpeg" />
+										<input name="slide_shows[]" class="form-control" type="file"="" multiple="" accept="image/jpeg" />
 									</div>
 									<div class="col-sm-6">
 										<?php

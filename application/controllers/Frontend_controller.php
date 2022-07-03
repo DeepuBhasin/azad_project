@@ -14,7 +14,7 @@ class Frontend_controller extends MY_Controller
 
 	public function index()
 	{
-		$pageName = 'Home';
+		$pageName = 'Home'; 
 		$data = [
 			'title' => $pageName . $this->appendTitle,
 			'breadcrumbs' => $pageName,

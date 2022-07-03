@@ -185,7 +185,7 @@
 									</div>
 								</div>
 								<div class="news-content">
-									<h2><a href="<?= base_url('project/' . $value['id']); ?>" title="<?= $value['title'] ?>"><?= $value['title'] ?></a></h2>
+									<h2><strong><a href="<?= base_url('project/' . $value['id']); ?>" title="<?= $value['title'] ?>"><?= $value['title'] ?></a></strong></h2>
 									<p><?= substr($value['description'], 0, 130) ?> ...</p>
 									<a href="<?= base_url('project/' . $value['id']); ?>">Read More <i class="fa fa-angle-right"></i></a>
 								</div>
