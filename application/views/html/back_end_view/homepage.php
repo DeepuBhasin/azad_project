@@ -16,7 +16,7 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<label class="control-label">Slide Shows * (1920x550)</label>
-							<input name="slide_shows[]" class="form-control" type="file"="" multiple="" accept=" image/png, image/gif, image/jpeg" />
+							<input name="slide_shows[]" class="form-control" type="file"="" multiple="" accept="image/jpeg" />
 						</div>
 						<div class="col-sm-6">
 							<?php

@@ -99,9 +99,9 @@
 						$arrayImages = explode(',', $homePageData['slide_show_images']);
 						foreach ($arrayImages as $key => $value) :
 						?>
-							<li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Intro Slide">
+							<li data-transition="fade" data-slotamount="2" data-masterspeed="500" data-saveperformance="on" data-title="Intro Slide">
 								<!-- MAIN IMAGE -->
-								<img src="<?= public_front_end_path('/upload/slide/compress/' . $value); ?>" alt="<?= $value ?>" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+								<img src="<?= public_front_end_path('/upload/slide/' . $value); ?>" alt="<?= $value ?>" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
 								<!-- LAYERS -->
 							</li>
 						<?php endforeach; ?>
