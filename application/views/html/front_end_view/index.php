@@ -179,7 +179,7 @@
 						<?php foreach ($projectPageDataLastestOne as $key => $value) : ?>
 							<div class="item news-post">
 								<div class="news-gallery">
-									<img src="<?= public_front_end_path('upload/projects/compress/' . $value['main_image_1']); ?>" alt="<?= $value['title']; ?>">
+									<img src="<?= public_front_end_path('upload/projects/' . $value['main_image_1']); ?>" alt="<?= $value['title']; ?>">
 									<div class="date-post">
 										<p><?= date('d M Y', strtotime($value['project_date'])) ?></p>
 									</div>
