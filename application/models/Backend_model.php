@@ -53,6 +53,7 @@ class Backend_model extends MY_MODEL
     }
     public function rowDataWithSingleInnerJoin(string $select = null, string $fromTable = null, string $joinTable = null, string $relationOn = null, array $where = [], string $orderby = null, $sortby = 'ASC', bool $rowStatus = false, $limitData = []): array
     {
+        $this->db->cache_on();
         $query = $this->db->select($select)->from($fromTable)->join($joinTable, $relationOn)->where($where)->order_by($orderby, $sortby);
 
         if ($limitData['limitStatus'] == true) {
@@ -64,7 +65,10 @@ class Backend_model extends MY_MODEL
         } else if ($limitData['limitStatus'] == false) {
             $query = $query->get();
         }
-
+        
+         // echo $this->db->last_query();
+        // exit;
+        $this->db->cache_off();
         if ($rowStatus == true) {
             return !empty($query->row_array()) ? $query->row_array() : [];
         } else if ($query->num_rows() > 0) {
