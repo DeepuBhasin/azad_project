@@ -65,6 +65,7 @@
                     <li><a href="<?= base_url('aboutpage') ?>"><i class="fa fa-clone"></i><span>About US Page</span></a></li>
                     <li><a href="<?= base_url('contactpage') ?>"><i class="fa fa-phone"></i><span>Contact Page</span></a></li>
                     <li><a href="<?= base_url('footerdiv') ?>"><i class="fa fa-copy"></i><span>Footer Div & Header Div</span></a></li>
+                    <li><a href="<?= base_url();?>"><i class="fa fa-globe"></i><span>Website</span></a></li>
                 </ul>
             </section>
         </aside>

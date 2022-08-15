@@ -134,7 +134,7 @@
 						<?php foreach ($projectPageDataBestOne as $key => $value) : ?>
 							<div class="col-md-3">
 								<div class="services-post">
-									<img src="<?= public_front_end_path('upload/projects/compress/' . $value['main_image_1']); ?>" alt="<?= $value['title']; ?>">
+									<img src="<?= public_front_end_path('upload/projects/' . $value['main_image_1']); ?>" alt="<?= $value['title']; ?>">
 									<div class="services-content">
 										<h2><a href="<?= base_url('project/' . $value['id']); ?>" title="<?= $value['title'] ?>"><?= $value['title'] ?></a></h2>
 										<p><?= substr($value['description'], 0, 130) ?> ...</p>
