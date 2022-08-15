@@ -120,7 +120,6 @@
 				font-size: 18px;
 				font-weight: 700;
 				text-transform: uppercase;
-				color: #000;
 				margin: 0 0 20px;
 				padding-bottom: 20px;
 				position: relative;
@@ -136,7 +135,7 @@
 								<div class="services-post">
 									<img src="<?= public_front_end_path('upload/projects/' . $value['main_image_1']); ?>" alt="<?= $value['title']; ?>">
 									<div class="services-content">
-										<h2><a href="<?= base_url('project/' . $value['id']); ?>" title="<?= $value['title'] ?>"><strong><?= $value['title'] ?></strong></a></h2>
+										<a href="<?= base_url('project/' . $value['id']); ?>" title="<?= $value['title'] ?>"><h2><strong><?= $value['title'] ?></strong></h2></a>
 										<p><?= substr($value['description'], 0, 130) ?> ...</p>
 										<a href="<?= base_url('project/' . $value['id']); ?>">Read More <i class="fa fa-angle-right"></i></a>
 									</div>

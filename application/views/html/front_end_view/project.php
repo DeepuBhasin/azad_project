@@ -16,7 +16,9 @@
 								<span><?= ucfirst($value['name']); ?></span>
 							</div>
 						</div>
+						
 					</div>
+					<a href="<?= base_url('project/' . $value['id']); ?>" title="<?= $value['title'] ?>"><h6 style="color:#000; text-transform: uppercase; text-align:center;"><?= $value['title'] ?></h6></a>
 				</div>
 			<?php endforeach; ?>
 
