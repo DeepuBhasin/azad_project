@@ -33,6 +33,7 @@
 							<p><span>Tel: </span> <?= $pageData['phone1'] ?> <?= isset($pageData['phone2']) ? ', ' . $pageData['phone2'] : ''; ?></p>
 							<p><span>Email: </span> <?= $pageData['email'] ?></p>
 							<p><span>Working Hours: </span> <?= $pageData['working_hours'] ?></p>
+							<p><span>Total Vistors : </span> <?= $totalCount ?></p>
 						</div>
 					</div>
 				</div>

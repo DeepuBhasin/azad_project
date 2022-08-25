@@ -90,4 +90,8 @@ class Backend_model extends MY_MODEL
             return FALSE;
         }
     }
+    public function getCount(string $table = '')
+    {
+        return $this->db->get($table)->num_rows();
+    }
 }
