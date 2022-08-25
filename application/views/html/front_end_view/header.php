@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="<?= public_front_end_path('css/bootstrap.min.css'); ?>" media="screen">
     <link rel="stylesheet" type="text/css" href="<?= public_front_end_path('css/font-awesome.css'); ?>" media="screen">
     <link rel="stylesheet" type="text/css" href="<?= public_front_end_path('css/style.css'); ?>" media="screen">
+    <link rel="shortcut icon" type="image/x-icon" href="<?= public_front_end_path('images/favicon.ico'); ?>">
 
 </head>
 

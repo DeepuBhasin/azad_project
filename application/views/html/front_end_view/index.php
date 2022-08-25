@@ -20,6 +20,7 @@
 	<!-- REVOLUTION BANNER CSS SETTINGS -->
 	<link rel="stylesheet" type="text/css" href="<?= public_front_end_path('css/settings.css" '); ?>media=" screen" />
 	<link rel="stylesheet" type="text/css" href="<?= public_front_end_path('css/style.css'); ?>" media="screen">
+	<link rel="shortcut icon" type="image/x-icon" href="<?= public_front_end_path('images/favicon.ico'); ?>">
 
 </head>
 
