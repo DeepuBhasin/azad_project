@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2022 at 05:48 AM
+-- Generation Time: Aug 25, 2022 at 08:47 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -20,25 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `azad_website`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `about_table`
---
-
-CREATE TABLE `about_table` (
-  `id` int(11) NOT NULL,
-  `about_description` longtext DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `about_table`
---
-
-INSERT INTO `about_table` (`id`, `about_description`, `created_at`) VALUES
-(1, 'A.S. Construction is a young building construction company primarily focused on delivering multistory building projects with highest quality. Under the management of Manjit Singh, the director, and with experienced staff, the company has bagged and successfully delivered around 15 projects in the past 10 years. The company has required machinery and manpower of 200+ to deliver projects as per design and project needs. Achieving best quality and evolving stakeholder relationships are our our highest priorities. We believe in working as an integrated system by collaborating with out client to provide cost effective and practical solutions. Our goal is to provide engaging workplace environment for our employees, encourage innovation and support our team for individual learning. \r\nOne company, one family.  ', '2021-11-03 13:30:53');
 
 -- --------------------------------------------------------
 
@@ -187,15 +168,21 @@ CREATE TABLE `project_table` (
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vistors`
+--
+
+CREATE TABLE `vistors` (
+  `id` int(11) NOT NULL,
+  `ipaddress` varchar(255) NOT NULL,
+  `created_dt` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `about_table`
---
-ALTER TABLE `about_table`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `contact_table`
@@ -240,14 +227,14 @@ ALTER TABLE `project_table`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indexes for table `vistors`
 --
+ALTER TABLE `vistors`
+  ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for table `about_table`
+-- AUTO_INCREMENT for dumped tables
 --
-ALTER TABLE `about_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `contact_table`
@@ -289,6 +276,12 @@ ALTER TABLE `project_category`
 -- AUTO_INCREMENT for table `project_table`
 --
 ALTER TABLE `project_table`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `vistors`
+--
+ALTER TABLE `vistors`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
